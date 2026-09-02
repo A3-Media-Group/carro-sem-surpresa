@@ -4,11 +4,15 @@ import {
   BadgeCheck,
   BookOpen,
   Calculator,
+  Fuel,
+  HandCoins,
   Landmark,
   Lock,
   Receipt,
   ShieldCheck,
+  Siren,
   Sparkles,
+  Tag,
   Wrench,
 } from "lucide-react";
 import ipvaData from "@/lib/data/ipva-por-estado.json";
@@ -41,6 +45,34 @@ const TOOLS = [
     title: "IPVA por Estado",
     description:
       "Alíquota e regra de isenção de todos os 27 estados, com busca rápida por nome ou sigla.",
+  },
+  {
+    href: "/calculadora-alcool-ou-gasolina",
+    icon: Fuel,
+    title: "Álcool ou Gasolina",
+    description:
+      "Com o consumo real do seu carro, não a regra genérica dos 70%, descubra o que compensa abastecer.",
+  },
+  {
+    href: "/simulador-financiamento-veiculo",
+    icon: HandCoins,
+    title: "Financiamento vs. à Vista",
+    description:
+      "Parcela, total pago e quanto disso é só juros — o custo real de financiar em vez de comprar à vista.",
+  },
+  {
+    href: "/tabela-multas-transito",
+    icon: Siren,
+    title: "Multas de Trânsito",
+    description:
+      "Valor e pontos na CNH das infrações mais comuns, com busca rápida.",
+  },
+  {
+    href: "/consulta-tabela-fipe",
+    icon: Tag,
+    title: "Consulta Tabela FIPE",
+    description:
+      "Preço médio de mercado de carros, motos e caminhões, por marca, modelo e ano.",
   },
 ] as const;
 
@@ -132,7 +164,7 @@ export default function Home() {
 
           <dl className="mx-auto mt-14 grid max-w-2xl grid-cols-2 gap-6 border-t border-white/10 pt-8 text-left sm:grid-cols-4">
             {[
-              { value: "4", label: "ferramentas grátis" },
+              { value: String(TOOLS.length), label: "ferramentas grátis" },
               { value: String(totalEstados), label: "estados no IPVA" },
               { value: "100%", label: "no seu navegador" },
               { value: "0", label: "cadastros exigidos" },
@@ -152,7 +184,7 @@ export default function Home() {
       <section className="mx-auto w-full max-w-5xl px-6 py-16 sm:py-20">
         <div className="max-w-2xl">
           <h2 className="text-2xl font-bold tracking-tight text-neutral-900 sm:text-3xl">
-            As 4 ferramentas
+            As {TOOLS.length} ferramentas
           </h2>
           <p className="mt-2 text-neutral-600">
             Cada uma resolve um gasto específico que costuma pegar o
@@ -160,7 +192,7 @@ export default function Home() {
           </p>
         </div>
 
-        <div className="mt-10 grid gap-5 sm:grid-cols-2">
+        <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {TOOLS.map((tool) => (
             <Link
               key={tool.href}

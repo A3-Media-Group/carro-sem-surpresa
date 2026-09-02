@@ -38,3 +38,11 @@ export const ridehailingPricePerKm = 2.3; // R$/km, estimativa média em capitai
 
 /** % de depreciação anual padrão sobre o valor do veículo (curva simplificada). */
 export const defaultAnnualDepreciationRate = 0.12; // 12% ao ano
+
+/**
+ * Taxa de juros mensal padrão pré-preenchida no simulador de
+ * financiamento — estimativa de mercado para financiamento de veículo
+ * no Brasil, editável na hora de simular. A taxa real varia bastante
+ * por banco, score de crédito e prazo; sempre confirme com o seu banco.
+ */
+export const defaultFinancingMonthlyRatePercent = 1.8; // % ao mês
