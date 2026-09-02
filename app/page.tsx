@@ -11,15 +11,23 @@ export default function Home() {
         escondidos de comprar, manter ou vender um carro no Brasil.
       </p>
 
-      <Link
-        href="/calculadora-custo-de-posse"
-        className="mt-8 inline-flex h-11 items-center rounded-md bg-orange-500 px-6 text-sm font-semibold text-white hover:bg-orange-600"
-      >
-        Calcular o custo real do meu carro
-      </Link>
+      <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
+        <Link
+          href="/calculadora-custo-de-posse"
+          className="inline-flex h-11 items-center rounded-md bg-orange-500 px-6 text-sm font-semibold text-white hover:bg-orange-600"
+        >
+          Calcular o custo real do meu carro
+        </Link>
+        <Link
+          href="/manutencao-preventiva-vs-corretiva"
+          className="inline-flex h-11 items-center rounded-md border border-neutral-300 px-6 text-sm font-semibold text-neutral-700 hover:bg-neutral-50"
+        >
+          Simular manutenção preventiva
+        </Link>
+      </div>
 
       <p className="mt-8 text-sm text-neutral-400">
-        As demais ferramentas (manutenção, recibo e IPVA por estado) chegam
+        As demais ferramentas (recibo de veículo e IPVA por estado) chegam
         nas próximas etapas.
       </p>
     </main>

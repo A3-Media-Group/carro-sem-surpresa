@@ -1,0 +1,63 @@
+{
+  "referencia": {
+    "dataAtualizacao": "2026-09-02",
+    "aviso": "Valores estimados (média de mercado, peça + mão de obra), para fins informativos. Podem variar bastante por região, marca/modelo específico e oficina. Edite este arquivo para ajustar aos preços da sua região."
+  },
+  "categorias": [
+    { "id": "popular", "nome": "Popular" },
+    { "id": "sedan", "nome": "Sedã" },
+    { "id": "suv", "nome": "SUV" },
+    { "id": "premium", "nome": "Premium" },
+    { "id": "eletrico", "nome": "Elétrico" }
+  ],
+  "itens": [
+    {
+      "id": "oleo",
+      "nome": "Troca de óleo e filtro",
+      "descricaoCorretivo": "Motor sem troca de óleo em dia pode gripar ou fundir — reparo ou troca parcial do motor.",
+      "porCategoria": {
+        "popular": { "aplicavel": true, "intervaloKm": 10000, "custoPreventivo": 250, "custoCorretivo": 3500 },
+        "sedan": { "aplicavel": true, "intervaloKm": 10000, "custoPreventivo": 350, "custoCorretivo": 5000 },
+        "suv": { "aplicavel": true, "intervaloKm": 10000, "custoPreventivo": 450, "custoCorretivo": 6500 },
+        "premium": { "aplicavel": true, "intervaloKm": 12000, "custoPreventivo": 900, "custoCorretivo": 12000 },
+        "eletrico": { "aplicavel": false, "motivo": "Carro elétrico não tem motor a combustão, então não há troca de óleo de motor." }
+      }
+    },
+    {
+      "id": "correia-dentada",
+      "nome": "Correia dentada / corrente de distribuição",
+      "descricaoCorretivo": "Se arrebenta rodando, pode destruir o motor inteiro — um dos reparos mais caros que existem.",
+      "porCategoria": {
+        "popular": { "aplicavel": true, "intervaloKm": 60000, "custoPreventivo": 800, "custoCorretivo": 6000 },
+        "sedan": { "aplicavel": true, "intervaloKm": 60000, "custoPreventivo": 1200, "custoCorretivo": 9000 },
+        "suv": { "aplicavel": true, "intervaloKm": 60000, "custoPreventivo": 1500, "custoCorretivo": 11000 },
+        "premium": { "aplicavel": true, "intervaloKm": 80000, "custoPreventivo": 3500, "custoCorretivo": 20000 },
+        "eletrico": { "aplicavel": false, "motivo": "Carro elétrico não tem correia dentada nem corrente de distribuição — não existe motor a combustão pra sincronizar." }
+      }
+    },
+    {
+      "id": "amortecedores",
+      "nome": "Amortecedores (jogo dianteiro ou traseiro)",
+      "descricaoCorretivo": "Amortecedor vencido desgasta pneus de forma irregular e sobrecarrega outras peças da suspensão.",
+      "porCategoria": {
+        "popular": { "aplicavel": true, "intervaloKm": 40000, "custoPreventivo": 900, "custoCorretivo": 2200 },
+        "sedan": { "aplicavel": true, "intervaloKm": 40000, "custoPreventivo": 1400, "custoCorretivo": 3200 },
+        "suv": { "aplicavel": true, "intervaloKm": 45000, "custoPreventivo": 2000, "custoCorretivo": 4500 },
+        "premium": { "aplicavel": true, "intervaloKm": 50000, "custoPreventivo": 4500, "custoCorretivo": 9000 },
+        "eletrico": { "aplicavel": true, "intervaloKm": 45000, "custoPreventivo": 1800, "custoCorretivo": 4000 }
+      }
+    },
+    {
+      "id": "pneus",
+      "nome": "Jogo de pneus (4 unidades)",
+      "descricaoCorretivo": "Pneu careca por muito tempo aumenta risco de estouro e pode danificar roda/alinhamento — sem contar a multa e o risco de acidente.",
+      "porCategoria": {
+        "popular": { "aplicavel": true, "intervaloKm": 40000, "custoPreventivo": 1600, "custoCorretivo": 2600 },
+        "sedan": { "aplicavel": true, "intervaloKm": 40000, "custoPreventivo": 2400, "custoCorretivo": 3800 },
+        "suv": { "aplicavel": true, "intervaloKm": 40000, "custoPreventivo": 3200, "custoCorretivo": 5000 },
+        "premium": { "aplicavel": true, "intervaloKm": 35000, "custoPreventivo": 6000, "custoCorretivo": 9000 },
+        "eletrico": { "aplicavel": true, "intervaloKm": 30000, "custoPreventivo": 3000, "custoCorretivo": 4500 }
+      }
+    }
+  ]
+}
