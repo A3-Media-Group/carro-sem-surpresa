@@ -1,0 +1,41 @@
+{
+  "referencia": {
+    "dataAtualizacao": "2026-09-02",
+    "aviso": "Alíquotas de IPVA mudam por lei estadual quase todo ano. Confirme sempre no site oficial do Detran/Sefaz do seu estado antes de decidir. Itens com \"confirmado\": false são estimativas baseadas em valores historicamente praticados e PRECISAM de verificação oficial antes de publicar.",
+    "isencaoNacional": {
+      "baseLegal": "Emenda Constitucional 137/2025, promulgada em 09/12/2025",
+      "regra": "Carros de passeio, picapes e veículos mistos com 20 anos ou mais de fabricação são imunes ao IPVA em todo o Brasil, a partir do exercício de 2026. Substitui as regras estaduais antigas (que variavam de 10 a 30 anos).",
+      "excecoes": "Ônibus, micro-ônibus, reboques e semirreboques NÃO entram na isenção mesmo com mais de 20 anos.",
+      "confirmado": true
+    }
+  },
+  "estados": [
+    { "uf": "AC", "nome": "Acre", "aliquotaCarroPasseio": 2.0, "anosIsencao": 20, "confirmado": false },
+    { "uf": "AL", "nome": "Alagoas", "aliquotaCarroPasseio": 3.0, "anosIsencao": 20, "confirmado": false },
+    { "uf": "AP", "nome": "Amapá", "aliquotaCarroPasseio": 3.0, "anosIsencao": 20, "confirmado": false },
+    { "uf": "AM", "nome": "Amazonas", "aliquotaCarroPasseio": 1.5, "anosIsencao": 20, "confirmado": false, "observacao": "Estado aplicou redução de ~50% na alíquota; valor exato precisa checar Sefaz-AM." },
+    { "uf": "BA", "nome": "Bahia", "aliquotaCarroPasseio": 2.5, "anosIsencao": 20, "confirmado": true },
+    { "uf": "CE", "nome": "Ceará", "aliquotaCarroPasseio": 2.5, "anosIsencao": 20, "confirmado": false },
+    { "uf": "DF", "nome": "Distrito Federal", "aliquotaCarroPasseio": 3.5, "anosIsencao": 20, "confirmado": false },
+    { "uf": "ES", "nome": "Espírito Santo", "aliquotaCarroPasseio": 2.0, "anosIsencao": 20, "confirmado": true },
+    { "uf": "GO", "nome": "Goiás", "aliquotaCarroPasseio": 3.75, "anosIsencao": 20, "confirmado": true },
+    { "uf": "MA", "nome": "Maranhão", "aliquotaCarroPasseio": 3.0, "anosIsencao": 20, "confirmado": false },
+    { "uf": "MT", "nome": "Mato Grosso", "aliquotaCarroPasseio": 2.5, "anosIsencao": 20, "confirmado": false },
+    { "uf": "MS", "nome": "Mato Grosso do Sul", "aliquotaCarroPasseio": 3.5, "anosIsencao": 20, "confirmado": false },
+    { "uf": "MG", "nome": "Minas Gerais", "aliquotaCarroPasseio": 4.0, "anosIsencao": 20, "confirmado": true },
+    { "uf": "PA", "nome": "Pará", "aliquotaCarroPasseio": 2.5, "anosIsencao": 20, "confirmado": false },
+    { "uf": "PB", "nome": "Paraíba", "aliquotaCarroPasseio": 3.0, "anosIsencao": 20, "confirmado": false },
+    { "uf": "PR", "nome": "Paraná", "aliquotaCarroPasseio": 1.9, "anosIsencao": 20, "confirmado": true, "observacao": "Alíquota única reduzida para praticamente todas as categorias." },
+    { "uf": "PE", "nome": "Pernambuco", "aliquotaCarroPasseio": 3.5, "anosIsencao": 20, "confirmado": false },
+    { "uf": "PI", "nome": "Piauí", "aliquotaCarroPasseio": 2.5, "anosIsencao": 20, "confirmado": false },
+    { "uf": "RJ", "nome": "Rio de Janeiro", "aliquotaCarroPasseio": 4.0, "anosIsencao": 20, "confirmado": true },
+    { "uf": "RN", "nome": "Rio Grande do Norte", "aliquotaCarroPasseio": 3.0, "anosIsencao": 20, "confirmado": false },
+    { "uf": "RS", "nome": "Rio Grande do Sul", "aliquotaCarroPasseio": 3.0, "anosIsencao": 20, "confirmado": true },
+    { "uf": "RO", "nome": "Rondônia", "aliquotaCarroPasseio": 3.0, "anosIsencao": 20, "confirmado": false },
+    { "uf": "RR", "nome": "Roraima", "aliquotaCarroPasseio": 3.0, "anosIsencao": 20, "confirmado": false },
+    { "uf": "SC", "nome": "Santa Catarina", "aliquotaCarroPasseio": 2.0, "anosIsencao": 20, "confirmado": true },
+    { "uf": "SP", "nome": "São Paulo", "aliquotaCarroPasseio": 4.0, "anosIsencao": 20, "confirmado": true },
+    { "uf": "SE", "nome": "Sergipe", "aliquotaCarroPasseio": 3.0, "anosIsencao": 20, "confirmado": false },
+    { "uf": "TO", "nome": "Tocantins", "aliquotaCarroPasseio": 2.0, "anosIsencao": 20, "confirmado": false }
+  ]
+}
