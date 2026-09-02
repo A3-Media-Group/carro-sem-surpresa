@@ -1,0 +1,40 @@
+name: Build e publicar site estático (deploy Hostinger)
+
+# A Hostinger (hPanel > Avançado > Git) não roda build nenhum ao puxar
+# um repositório — ela só copia os arquivos como estão. Por isso este
+# workflow compila o site (npm run build, export estático) a cada push
+# na main e publica só a pasta out/ na branch "hostinger-deploy". No
+# hPanel, conecte o Git apontando pra essa branch (não a main).
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Configurar Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Instalar dependências
+        run: npm ci
+
+      - name: Build (export estático)
+        run: npm run build
+
+      - name: Publicar out/ na branch hostinger-deploy
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: out
+          branch: hostinger-deploy
+          clean: true
