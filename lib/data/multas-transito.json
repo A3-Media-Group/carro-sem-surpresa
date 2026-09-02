@@ -1,0 +1,107 @@
+{
+  "referencia": {
+    "dataAtualizacao": "2026-09-02",
+    "aviso": "Valores nacionais fixados pelo CTB e reajustados periodicamente pelo CONTRAN (pela variação do IPCA) — não variam por estado, ao contrário do IPVA. Itens com \"confirmado\": false têm classificação típica mas podem variar por interpretação do agente/órgão autuador — confirme sempre no órgão de trânsito do seu estado antes de decidir recorrer ou pagar.",
+    "descontoPagamentoAntecipado": "O CTB prevê desconto de 40% pra quem paga a multa até o vencimento da notificação e não entra com recurso.",
+    "baseLegal": "Código de Trânsito Brasileiro (CTB), valores-base do Art. 258 e enquadramentos específicos por artigo."
+  },
+  "naturezas": [
+    { "id": "leve", "nome": "Leve", "valorBase": 88.38, "pontos": 3 },
+    { "id": "media", "nome": "Média", "valorBase": 130.16, "pontos": 4 },
+    { "id": "grave", "nome": "Grave", "valorBase": 195.23, "pontos": 5 },
+    { "id": "gravissima", "nome": "Gravíssima", "valorBase": 293.47, "pontos": 7 }
+  ],
+  "infracoes": [
+    {
+      "id": "embriaguez",
+      "descricao": "Dirigir sob efeito de álcool ou outra substância psicoativa",
+      "natureza": "gravissima",
+      "valor": 2934.70,
+      "pontos": 7,
+      "observacao": "Multiplicador de 10x sobre o valor-base da gravíssima. Além da multa: suspensão do direito de dirigir por 12 meses e retenção do veículo.",
+      "confirmado": true
+    },
+    {
+      "id": "celular",
+      "descricao": "Segurar ou manusear celular enquanto dirige",
+      "natureza": "gravissima",
+      "valor": 293.47,
+      "pontos": 7,
+      "observacao": "Usar fone de ouvido conectado ao celular sem segurar o aparelho é enquadrado como infração média, não gravíssima.",
+      "confirmado": true
+    },
+    {
+      "id": "sinal-vermelho",
+      "descricao": "Avançar o sinal vermelho ou parada obrigatória",
+      "natureza": "gravissima",
+      "valor": 293.47,
+      "pontos": 7,
+      "confirmado": true
+    },
+    {
+      "id": "velocidade-ate-20",
+      "descricao": "Excesso de velocidade até 20% acima do limite da via",
+      "natureza": "media",
+      "valor": 130.16,
+      "pontos": 4,
+      "confirmado": true
+    },
+    {
+      "id": "velocidade-20-a-50",
+      "descricao": "Excesso de velocidade de 20% a 50% acima do limite",
+      "natureza": "grave",
+      "valor": 195.23,
+      "pontos": 5,
+      "confirmado": true
+    },
+    {
+      "id": "velocidade-acima-50",
+      "descricao": "Excesso de velocidade acima de 50% do limite",
+      "natureza": "gravissima",
+      "valor": 880.41,
+      "pontos": 7,
+      "observacao": "Multiplicador de 3x sobre o valor-base da gravíssima, além de suspensão automática do direito de dirigir.",
+      "confirmado": true
+    },
+    {
+      "id": "cinto",
+      "descricao": "Dirigir ou andar sem cinto de segurança",
+      "natureza": "grave",
+      "valor": 195.23,
+      "pontos": 5,
+      "confirmado": true
+    },
+    {
+      "id": "estacionar-proibido",
+      "descricao": "Estacionar em local proibido",
+      "natureza": "media",
+      "valor": 130.16,
+      "pontos": 4,
+      "confirmado": false
+    },
+    {
+      "id": "sem-seta",
+      "descricao": "Não sinalizar (usar seta) antes de mudar de direção ou faixa",
+      "natureza": "media",
+      "valor": 130.16,
+      "pontos": 4,
+      "confirmado": false
+    },
+    {
+      "id": "ultrapassagem-proibida",
+      "descricao": "Ultrapassar em local proibido (faixa contínua, curva, topo de morro)",
+      "natureza": "gravissima",
+      "valor": 293.47,
+      "pontos": 7,
+      "confirmado": false
+    },
+    {
+      "id": "vaga-idoso-pcd",
+      "descricao": "Estacionar em vaga reservada a idoso ou pessoa com deficiência sem credencial",
+      "natureza": "grave",
+      "valor": 195.23,
+      "pontos": 5,
+      "confirmado": false
+    }
+  ]
+}

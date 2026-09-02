@@ -13,6 +13,7 @@ interface SelectFieldProps {
   onChange: (value: string) => void;
   options: SelectOption[];
   hint?: string;
+  disabled?: boolean;
 }
 
 export function SelectField({
@@ -21,6 +22,7 @@ export function SelectField({
   onChange,
   options,
   hint,
+  disabled,
 }: SelectFieldProps) {
   const id = useId();
 
@@ -31,7 +33,8 @@ export function SelectField({
         id={id}
         value={value}
         onChange={(e) => onChange(e.target.value)}
-        className="mt-1 block h-11 w-full rounded-md border border-neutral-300 bg-white px-3 text-base focus:border-brand-orange focus:outline-none focus:ring-1 focus:ring-brand-orange"
+        disabled={disabled}
+        className="mt-1 block h-11 w-full rounded-md border border-neutral-300 bg-white px-3 text-base focus:border-brand-orange focus:outline-none focus:ring-1 focus:ring-brand-orange disabled:cursor-not-allowed disabled:bg-neutral-100 disabled:text-neutral-400"
       >
         {options.map((option) => (
           <option key={option.value} value={option.value}>
