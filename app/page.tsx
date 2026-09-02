@@ -39,7 +39,11 @@ export default function Home() {
       </div>
 
       <p className="mt-8 text-sm text-neutral-400">
-        Guias completos sobre custo de carro chegam na próxima etapa.
+        Quer entender mais a fundo?{" "}
+        <Link href="/guias" className="underline hover:text-neutral-600">
+          Veja nossos guias completos
+        </Link>
+        .
       </p>
     </main>
   );
