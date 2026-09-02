@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { ArrowRight, BookOpen } from "lucide-react";
+import { PageHeading } from "@/components/ui/PageHeading";
 
 export const metadata: Metadata = {
   title: "Guias sobre o Custo Real de um Carro",
@@ -31,15 +33,10 @@ const guias = [
 export default function GuiasPage() {
   return (
     <main className="mx-auto max-w-3xl px-6 py-12">
-      <header className="max-w-2xl">
-        <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">
-          Guias sobre o Custo Real de um Carro
-        </h1>
-        <p className="mt-3 text-neutral-600">
-          Conteúdo gratuito pra você entender o gasto que ninguém te conta —
-          antes, durante e depois de ter um carro.
-        </p>
-      </header>
+      <PageHeading icon={BookOpen} title="Guias sobre o Custo Real de um Carro">
+        Conteúdo gratuito pra você entender o gasto que ninguém te conta —
+        antes, durante e depois de ter um carro.
+      </PageHeading>
 
       <div className="mt-10 space-y-4">
         {guias.map((guia) => (
@@ -47,12 +44,18 @@ export default function GuiasPage() {
             key={guia.href}
             href={guia.href}
             prefetch={false}
-            className="block rounded-xl border border-neutral-200 p-6 transition hover:border-orange-300 hover:bg-orange-50"
+            className="group flex items-center justify-between gap-4 rounded-xl border border-neutral-200 p-6 transition hover:border-brand-orange/50 hover:shadow-md"
           >
-            <h2 className="text-lg font-semibold text-neutral-900">
-              {guia.titulo}
-            </h2>
-            <p className="mt-2 text-sm text-neutral-600">{guia.resumo}</p>
+            <div>
+              <h2 className="text-lg font-semibold text-neutral-900">
+                {guia.titulo}
+              </h2>
+              <p className="mt-2 text-sm text-neutral-600">{guia.resumo}</p>
+            </div>
+            <ArrowRight
+              size={18}
+              className="shrink-0 text-brand-orange-dark transition-transform group-hover:translate-x-0.5"
+            />
           </Link>
         ))}
       </div>

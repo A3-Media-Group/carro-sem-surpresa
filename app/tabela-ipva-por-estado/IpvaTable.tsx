@@ -1,7 +1,9 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import { Landmark } from "lucide-react";
 import { Badge } from "@/components/ui/Badge";
+import { PageHeading } from "@/components/ui/PageHeading";
 import { formatDateBR, formatNumber } from "@/lib/format";
 import ipvaData from "@/lib/data/ipva-por-estado.json";
 
@@ -32,15 +34,10 @@ export function IpvaTable() {
 
   return (
     <main className="mx-auto max-w-4xl px-6 py-12">
-      <header className="max-w-2xl">
-        <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">
-          Tabela de Isenção de IPVA por Estado
-        </h1>
-        <p className="mt-3 text-neutral-600">
-          Alíquota de IPVA para carro de passeio e a regra de isenção para
-          carros antigos, estado por estado.
-        </p>
-      </header>
+      <PageHeading icon={Landmark} title="Tabela de Isenção de IPVA por Estado">
+        Alíquota de IPVA para carro de passeio e a regra de isenção para
+        carros antigos, estado por estado.
+      </PageHeading>
 
       <div className="mt-6 space-y-2 rounded-lg bg-neutral-50 p-4 text-sm text-neutral-600">
         <p>
