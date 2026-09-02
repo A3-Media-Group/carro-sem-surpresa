@@ -25,6 +25,7 @@ export function Footer() {
               <li key={link.href}>
                 <Link
                   href={link.href}
+                  prefetch={false}
                   className="flex min-h-11 items-center text-sm text-white/70 hover:text-brand-orange"
                 >
                   {link.label}

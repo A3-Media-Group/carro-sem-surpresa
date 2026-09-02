@@ -60,7 +60,7 @@ export function IpvaTable() {
           placeholder="Buscar por estado ou sigla (ex: São Paulo, SP)"
           value={search}
           onChange={(e) => setSearch(e.target.value)}
-          className="h-11 w-full rounded-md border border-neutral-300 px-3 text-base focus:border-orange-500 focus:outline-none focus:ring-1 focus:ring-orange-500"
+          className="h-11 w-full rounded-md border border-neutral-300 px-3 text-base focus:border-brand-orange focus:outline-none focus:ring-1 focus:ring-brand-orange"
         />
       </label>
 
@@ -103,7 +103,7 @@ export function IpvaTable() {
               <tr>
                 <td
                   colSpan={4}
-                  className="px-4 py-6 text-center text-neutral-400"
+                  className="px-4 py-6 text-center text-neutral-500"
                 >
                   Nenhum estado encontrado para &quot;{search}&quot;.
                 </td>
@@ -113,7 +113,7 @@ export function IpvaTable() {
         </table>
       </div>
 
-      <p className="mt-6 text-xs text-neutral-400">
+      <p className="mt-6 text-xs text-neutral-500">
         Valores estimados para fins informativos. A legislação de IPVA muda
         com frequência — confirme sempre a alíquota vigente no site oficial
         do Detran/Sefaz do seu estado antes de tomar decisões.

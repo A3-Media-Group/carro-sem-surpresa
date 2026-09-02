@@ -31,7 +31,7 @@ export function SelectField({
         id={id}
         value={value}
         onChange={(e) => onChange(e.target.value)}
-        className="mt-1 block h-11 w-full rounded-md border border-neutral-300 bg-white px-3 text-base focus:border-orange-500 focus:outline-none focus:ring-1 focus:ring-orange-500"
+        className="mt-1 block h-11 w-full rounded-md border border-neutral-300 bg-white px-3 text-base focus:border-brand-orange focus:outline-none focus:ring-1 focus:ring-brand-orange"
       >
         {options.map((option) => (
           <option key={option.value} value={option.value}>

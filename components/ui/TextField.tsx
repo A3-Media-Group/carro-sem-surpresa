@@ -39,7 +39,7 @@ export function TextField({
         className={`mt-1 block h-11 w-full rounded-md border px-3 text-base focus:outline-none focus:ring-1 ${
           error
             ? "border-red-400 focus:border-red-500 focus:ring-red-500"
-            : "border-neutral-300 focus:border-orange-500 focus:ring-orange-500"
+            : "border-neutral-300 focus:border-brand-orange focus:ring-brand-orange"
         }`}
       />
       {error && <span className="mt-1 block text-xs text-red-600">{error}</span>}

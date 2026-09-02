@@ -11,36 +11,44 @@ export default function Home() {
         escondidos de comprar, manter ou vender um carro no Brasil.
       </p>
 
+      {/* prefetch={false}: com todos os links visíveis de cara na home,
+          o prefetch automático do Next.js baixaria em segundo plano o
+          JS de todas as ferramentas (incluindo o jsPDF do recibo, ~450KB)
+          antes mesmo do clique — pesado demais pra quem só quer usar uma. */}
       <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
         <Link
           href="/calculadora-custo-de-posse"
-          className="inline-flex h-11 items-center rounded-md bg-orange-500 px-6 text-sm font-semibold text-white hover:bg-orange-600"
+          prefetch={false}
+          className="inline-flex h-11 items-center rounded-md bg-brand-orange px-6 text-sm font-semibold text-graphite hover:bg-brand-orange-dark hover:text-white"
         >
           Calcular o custo real do meu carro
         </Link>
         <Link
           href="/manutencao-preventiva-vs-corretiva"
+          prefetch={false}
           className="inline-flex h-11 items-center rounded-md border border-neutral-300 px-6 text-sm font-semibold text-neutral-700 hover:bg-neutral-50"
         >
           Simular manutenção preventiva
         </Link>
         <Link
           href="/gerador-recibo-veiculo"
+          prefetch={false}
           className="inline-flex h-11 items-center rounded-md border border-neutral-300 px-6 text-sm font-semibold text-neutral-700 hover:bg-neutral-50"
         >
           Gerar recibo de veículo
         </Link>
         <Link
           href="/tabela-ipva-por-estado"
+          prefetch={false}
           className="inline-flex h-11 items-center rounded-md border border-neutral-300 px-6 text-sm font-semibold text-neutral-700 hover:bg-neutral-50"
         >
           Ver IPVA por estado
         </Link>
       </div>
 
-      <p className="mt-8 text-sm text-neutral-400">
+      <p className="mt-8 text-sm text-neutral-500">
         Quer entender mais a fundo?{" "}
-        <Link href="/guias" className="underline hover:text-neutral-600">
+        <Link href="/guias" prefetch={false} className="underline hover:text-neutral-600">
           Veja nossos guias completos
         </Link>
         .

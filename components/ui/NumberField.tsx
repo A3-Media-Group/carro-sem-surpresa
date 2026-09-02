@@ -42,7 +42,7 @@ export function NumberField({
           value={value === 0 ? "" : value}
           placeholder="0"
           onChange={handleChange}
-          className="h-11 w-full rounded-md border border-neutral-300 px-3 text-base focus:border-orange-500 focus:outline-none focus:ring-1 focus:ring-orange-500"
+          className="h-11 w-full rounded-md border border-neutral-300 px-3 text-base focus:border-brand-orange focus:outline-none focus:ring-1 focus:ring-brand-orange"
         />
         {suffix && (
           <span className="ml-2 shrink-0 text-sm text-neutral-500">

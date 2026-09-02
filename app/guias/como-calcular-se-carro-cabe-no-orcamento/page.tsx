@@ -113,7 +113,7 @@ export default function Page() {
       <ArticleCallout>
         Não sabe estimar a soma de todos esses custos de um carro
         específico? A nossa{" "}
-        <Link href="/calculadora-custo-de-posse" className="underline">
+        <Link href="/calculadora-custo-de-posse" prefetch={false} className="underline">
           Calculadora do Custo Real de Posse
         </Link>{" "}
         faz essa conta pra você em tempo real — valor do carro, estado,
@@ -208,7 +208,7 @@ export default function Page() {
       <ArticleCallout>
         Antes de fechar negócio, rode o valor do carro que você tem em
         mente na{" "}
-        <Link href="/calculadora-custo-de-posse" className="underline">
+        <Link href="/calculadora-custo-de-posse" prefetch={false} className="underline">
           calculadora de custo de posse
         </Link>
         . Dois minutos hoje evitam meses de aperto depois.

@@ -41,7 +41,7 @@ export default function Page() {
         rodada. Um carro que roda pouco mas é caro de manter pode sair mais
         caro por km do que um carro popular rodando bastante. É por isso
         que a nossa{" "}
-        <Link href="/calculadora-custo-de-posse" className="underline">
+        <Link href="/calculadora-custo-de-posse" prefetch={false} className="underline">
           Calculadora do Custo Real de Posse
         </Link>{" "}
         sempre mostra o valor por km, não só o total mensal.
@@ -71,7 +71,7 @@ export default function Page() {
       </ArticleP>
       <ArticleCallout>
         Quer saber o que está vencendo no seu carro agora? Nosso{" "}
-        <Link href="/manutencao-preventiva-vs-corretiva" className="underline">
+        <Link href="/manutencao-preventiva-vs-corretiva" prefetch={false} className="underline">
           Simulador de Manutenção Preventiva vs. Corretiva
         </Link>{" "}
         mostra a próxima troca de cada item e quanto você economiza fazendo
@@ -118,7 +118,7 @@ export default function Page() {
 
       <ArticleCallout>
         A nossa{" "}
-        <Link href="/calculadora-custo-de-posse" className="underline">
+        <Link href="/calculadora-custo-de-posse" prefetch={false} className="underline">
           Calculadora do Custo Real de Posse
         </Link>{" "}
         já traz esse comparativo pronto: carro próprio vs. app de

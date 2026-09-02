@@ -68,7 +68,7 @@ export default function Page() {
             <summary className="cursor-pointer list-none text-lg font-semibold text-neutral-900 marker:content-none">
               <span className="flex items-center justify-between gap-4">
                 {faq.pergunta}
-                <span className="shrink-0 text-neutral-400 group-open:rotate-45 transition-transform">
+                <span className="shrink-0 text-neutral-500 group-open:rotate-45 transition-transform">
                   +
                 </span>
               </span>
@@ -82,11 +82,11 @@ export default function Page() {
 
       <p className="mt-8 text-sm text-neutral-500">
         Quer calcular esses números pro seu carro? Confira a{" "}
-        <Link href="/calculadora-custo-de-posse" className="underline">
+        <Link href="/calculadora-custo-de-posse" prefetch={false} className="underline">
           Calculadora do Custo Real de Posse
         </Link>{" "}
         e a{" "}
-        <Link href="/tabela-ipva-por-estado" className="underline">
+        <Link href="/tabela-ipva-por-estado" prefetch={false} className="underline">
           Tabela de IPVA por Estado
         </Link>
         .

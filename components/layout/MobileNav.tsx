@@ -30,6 +30,7 @@ export function MobileNav() {
               <li key={link.href}>
                 <Link
                   href={link.href}
+                  prefetch={false}
                   onClick={() => setOpen(false)}
                   className="flex min-h-11 items-center rounded-md px-3 text-base font-medium text-white hover:bg-white/10 hover:text-brand-orange"
                 >

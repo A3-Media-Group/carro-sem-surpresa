@@ -27,7 +27,8 @@ export function ArticleLayout({
         <div className="mx-auto w-full max-w-3xl lg:mx-0">
           <Link
             href="/guias"
-            className="text-sm font-medium text-orange-600 hover:underline"
+            prefetch={false}
+            className="text-sm font-medium text-brand-orange-dark hover:underline"
           >
             ← Voltar para os guias
           </Link>

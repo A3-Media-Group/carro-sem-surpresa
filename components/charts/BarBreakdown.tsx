@@ -11,7 +11,7 @@ interface BarBreakdownProps {
 
 const BAR_COLORS = [
   "bg-slate-600",
-  "bg-orange-500",
+  "bg-brand-orange",
   "bg-sky-500",
   "bg-emerald-500",
   "bg-violet-500",

@@ -206,13 +206,13 @@ export function TcoCalculator() {
                 ? `Nessa conta, o app sairia ${formatBRL(result.rideHailingDiffMonthly)} mais barato por mês do que ter o carro.`
                 : `Nessa conta, ter o carro sairia ${formatBRL(-result.rideHailingDiffMonthly)} mais barato por mês do que usar só apps.`}
             </p>
-            <p className="mt-2 text-xs text-neutral-400">
+            <p className="mt-2 text-xs text-neutral-500">
               Comparativo simplificado: não considera tempo de espera,
               disponibilidade de carro nem viagens fora do trajeto de rotina.
             </p>
           </div>
 
-          <p className="text-xs text-neutral-400">
+          <p className="text-xs text-neutral-500">
             Valores estimados para fins informativos, não substituem
             aconselhamento financeiro.
           </p>

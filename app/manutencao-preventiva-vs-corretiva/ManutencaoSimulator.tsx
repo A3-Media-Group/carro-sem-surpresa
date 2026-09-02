@@ -116,7 +116,7 @@ export function ManutencaoSimulator() {
         ))}
       </div>
 
-      <p className="mt-10 text-xs text-neutral-400">
+      <p className="mt-10 text-xs text-neutral-500">
         Valores estimados para fins informativos, não substituem
         aconselhamento financeiro nem a avaliação de um mecânico de
         confiança sobre o estado real do seu carro.

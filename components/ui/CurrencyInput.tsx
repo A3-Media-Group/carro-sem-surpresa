@@ -39,7 +39,7 @@ export function CurrencyInput({
         inputMode="numeric"
         value={displayValue}
         onChange={handleChange}
-        className="mt-1 block h-11 w-full rounded-md border border-neutral-300 px-3 text-base focus:border-orange-500 focus:outline-none focus:ring-1 focus:ring-orange-500"
+        className="mt-1 block h-11 w-full rounded-md border border-neutral-300 px-3 text-base focus:border-brand-orange focus:outline-none focus:ring-1 focus:ring-brand-orange"
       />
       {hint && (
         <span className="mt-1 block text-xs font-normal text-neutral-500">

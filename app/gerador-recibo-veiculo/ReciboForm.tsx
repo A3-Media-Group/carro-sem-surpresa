@@ -223,11 +223,11 @@ export function ReciboForm() {
           <button
             type="submit"
             disabled={!isValid}
-            className="h-11 w-full rounded-md bg-orange-500 px-6 text-sm font-semibold text-white hover:bg-orange-600 disabled:cursor-not-allowed disabled:bg-neutral-300 sm:w-auto"
+            className="h-11 w-full rounded-md bg-brand-orange px-6 text-sm font-semibold text-graphite hover:bg-brand-orange-dark hover:text-white disabled:cursor-not-allowed disabled:bg-neutral-300 disabled:text-neutral-500 sm:w-auto"
           >
             Gerar PDF
           </button>
-          <p className="mt-3 text-xs text-neutral-400">
+          <p className="mt-3 text-xs text-neutral-500">
             Este documento não substitui a transferência oficial de
             propriedade no Detran — é só um recibo entre as partes. Preencha
             o Certificado de Registro de Veículo (CRV/ATPV-e) para efetivar

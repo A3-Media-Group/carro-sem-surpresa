@@ -46,6 +46,7 @@ export default function GuiasPage() {
           <Link
             key={guia.href}
             href={guia.href}
+            prefetch={false}
             className="block rounded-xl border border-neutral-200 p-6 transition hover:border-orange-300 hover:bg-orange-50"
           >
             <h2 className="text-lg font-semibold text-neutral-900">

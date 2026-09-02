@@ -24,7 +24,7 @@ export function AdSlot({ position, className = "" }: AdSlotProps) {
     <div
       role="complementary"
       aria-label="Espaço publicitário"
-      className={`flex flex-col items-center justify-center gap-1 rounded-md border border-dashed border-neutral-300 bg-neutral-50 text-neutral-400 ${SIZE_CLASSES[position]} ${className}`}
+      className={`flex flex-col items-center justify-center gap-1 rounded-md border border-dashed border-neutral-300 bg-neutral-50 text-neutral-500 ${SIZE_CLASSES[position]} ${className}`}
     >
       <span className="text-[10px] font-semibold uppercase tracking-widest">
         Publicidade
