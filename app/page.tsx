@@ -24,11 +24,16 @@ export default function Home() {
         >
           Simular manutenção preventiva
         </Link>
+        <Link
+          href="/gerador-recibo-veiculo"
+          className="inline-flex h-11 items-center rounded-md border border-neutral-300 px-6 text-sm font-semibold text-neutral-700 hover:bg-neutral-50"
+        >
+          Gerar recibo de veículo
+        </Link>
       </div>
 
       <p className="mt-8 text-sm text-neutral-400">
-        As demais ferramentas (recibo de veículo e IPVA por estado) chegam
-        nas próximas etapas.
+        A ferramenta de IPVA por estado chega na próxima etapa.
       </p>
     </main>
   );
