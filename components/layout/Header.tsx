@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { NAV_LINKS } from "./nav-links";
+import { ToolsDropdown } from "./ToolsDropdown";
 import { MobileNav } from "./MobileNav";
 
 export function Header() {
@@ -10,24 +10,19 @@ export function Header() {
           Carro <span className="text-brand-orange">Sem Surpresa</span>
         </Link>
 
-        {/* prefetch={false}: o header aparece em toda página, então o
-            prefetch automático baixaria em segundo plano o JS de todas
-            as ferramentas em toda navegação — inclusive o jsPDF do
+        {/* prefetch={false} nos links: o header aparece em toda página,
+            então o prefetch automático baixaria em segundo plano o JS de
+            todas as ferramentas em toda navegação — inclusive o jsPDF do
             recibo (~450KB), sem necessidade. */}
-        <nav aria-label="Menu principal" className="hidden sm:block">
-          <ul className="flex items-center gap-1">
-            {NAV_LINKS.map((link) => (
-              <li key={link.href}>
-                <Link
-                  href={link.href}
-                  prefetch={false}
-                  className="flex h-11 items-center rounded-md px-3 text-sm font-medium text-white/90 hover:bg-white/10 hover:text-brand-orange"
-                >
-                  {link.label}
-                </Link>
-              </li>
-            ))}
-          </ul>
+        <nav aria-label="Menu principal" className="hidden items-center gap-1 sm:flex">
+          <ToolsDropdown />
+          <Link
+            href="/guias"
+            prefetch={false}
+            className="flex h-11 items-center rounded-md px-3 text-sm font-medium text-white/90 hover:bg-white/10 hover:text-brand-orange"
+          >
+            Guias
+          </Link>
         </nav>
 
         <MobileNav />
