@@ -3,12 +3,22 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  /* Paleta da marca: grafite + laranja (Etapa 7). Coincidem exatamente
+     com os tokens padrão do Tailwind slate-900/orange-500, então as
+     classes utilitárias `bg-slate-900`/`bg-orange-500` já usadas nas
+     etapas anteriores continuam válidas — estas variáveis só dão nomes
+     semânticos (`bg-graphite`, `text-brand-orange` etc.) pra quem for
+     escrever componentes novos. */
+  --color-graphite: #0f172a;
+  --color-brand-orange: #f97316;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-inter);
+  --color-graphite: var(--color-graphite);
+  --color-brand-orange: var(--color-brand-orange);
 }
 
 body {

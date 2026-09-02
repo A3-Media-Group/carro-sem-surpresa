@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import { Header } from "@/components/layout/Header";
+import { Footer } from "@/components/layout/Footer";
+import { AdSlot } from "@/components/ads/AdSlot";
 import "./globals.css";
 
 const inter = Inter({
@@ -41,8 +44,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR" className={inter.variable}>
-      <body className="min-h-screen flex flex-col font-sans antialiased">
-        {children}
+      <body className="flex min-h-screen flex-col font-sans antialiased">
+        <Header />
+        <AdSlot position="header" className="mx-auto my-3 max-w-6xl px-6" />
+        <div className="flex flex-1 flex-col">{children}</div>
+        <Footer />
       </body>
     </html>
   );

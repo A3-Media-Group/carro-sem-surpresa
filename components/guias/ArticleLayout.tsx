@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
+import { AdSlot } from "@/components/ads/AdSlot";
 
 /**
  * Layout compartilhado dos artigos de /guias: título, subtítulo e um
@@ -7,6 +8,9 @@ import type { ReactNode } from "react";
  * depender do plugin @tailwindcss/typography, que não está instalado).
  * Use os elementos <ArticleH2>, <ArticleP> etc. abaixo dentro do
  * conteúdo para manter o espaçamento/estilo padronizado.
+ *
+ * Também é onde ficam os AdSlots "in-between" (entre o título e o
+ * corpo do artigo) e "sidebar" (coluna lateral, só em telas grandes).
  */
 export function ArticleLayout({
   title,
@@ -18,18 +22,29 @@ export function ArticleLayout({
   children: ReactNode;
 }) {
   return (
-    <main className="mx-auto max-w-3xl px-6 py-12">
-      <Link
-        href="/guias"
-        className="text-sm font-medium text-orange-600 hover:underline"
-      >
-        ← Voltar para os guias
-      </Link>
-      <h1 className="mt-4 text-3xl font-bold tracking-tight text-neutral-900 sm:text-4xl">
-        {title}
-      </h1>
-      {dek && <p className="mt-3 text-lg text-neutral-600">{dek}</p>}
-      <div className="mt-8 space-y-4">{children}</div>
+    <main className="mx-auto max-w-6xl px-6 py-12">
+      <div className="lg:grid lg:grid-cols-[1fr_300px] lg:items-start lg:gap-10">
+        <div className="mx-auto w-full max-w-3xl lg:mx-0">
+          <Link
+            href="/guias"
+            className="text-sm font-medium text-orange-600 hover:underline"
+          >
+            ← Voltar para os guias
+          </Link>
+          <h1 className="mt-4 text-3xl font-bold tracking-tight text-neutral-900 sm:text-4xl">
+            {title}
+          </h1>
+          {dek && <p className="mt-3 text-lg text-neutral-600">{dek}</p>}
+
+          <AdSlot position="in-between" className="my-8" />
+
+          <div className="space-y-4">{children}</div>
+        </div>
+
+        <aside className="hidden lg:sticky lg:top-24 lg:block">
+          <AdSlot position="sidebar" />
+        </aside>
+      </div>
     </main>
   );
 }
