@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function Home() {
   return (
     <main className="flex flex-1 flex-col items-center justify-center px-6 py-24 text-center">
@@ -8,9 +10,17 @@ export default function Home() {
         Ajudamos você a nunca mais ser pego de surpresa pelos custos
         escondidos de comprar, manter ou vender um carro no Brasil.
       </p>
+
+      <Link
+        href="/calculadora-custo-de-posse"
+        className="mt-8 inline-flex h-11 items-center rounded-md bg-orange-500 px-6 text-sm font-semibold text-white hover:bg-orange-600"
+      >
+        Calcular o custo real do meu carro
+      </Link>
+
       <p className="mt-8 text-sm text-neutral-400">
-        As ferramentas (calculadora de custo de posse, manutenção, recibo e
-        IPVA por estado) chegam nas próximas etapas.
+        As demais ferramentas (manutenção, recibo e IPVA por estado) chegam
+        nas próximas etapas.
       </p>
     </main>
   );
