@@ -1,9 +1,11 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import { Calculator } from "lucide-react";
 import { CurrencyInput } from "@/components/ui/CurrencyInput";
 import { NumberField } from "@/components/ui/NumberField";
 import { SelectField } from "@/components/ui/SelectField";
+import { PageHeading } from "@/components/ui/PageHeading";
 import { BarBreakdown } from "@/components/charts/BarBreakdown";
 import { computeTco } from "@/lib/calculators/tco";
 import {
@@ -94,16 +96,11 @@ export function TcoCalculator() {
 
   return (
     <main className="mx-auto max-w-5xl px-6 py-12">
-      <header className="max-w-2xl">
-        <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">
-          Calculadora do Custo Real de Posse
-        </h1>
-        <p className="mt-3 text-neutral-600">
-          Depreciação, IPVA, seguro, combustível e manutenção — o gasto que
-          ninguém te conta quando você compra um carro. Preencha os campos
-          abaixo e veja o custo mensal de verdade, na hora.
-        </p>
-      </header>
+      <PageHeading icon={Calculator} title="Calculadora do Custo Real de Posse">
+        Depreciação, IPVA, seguro, combustível e manutenção — o gasto que
+        ninguém te conta quando você compra um carro. Preencha os campos
+        abaixo e veja o custo mensal de verdade, na hora.
+      </PageHeading>
 
       <div className="mt-10 grid gap-10 lg:grid-cols-2">
         <form className="space-y-5" onSubmit={(e) => e.preventDefault()}>

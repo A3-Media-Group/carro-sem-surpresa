@@ -1,10 +1,12 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import { Wrench } from "lucide-react";
 import { SelectField } from "@/components/ui/SelectField";
 import { NumberField } from "@/components/ui/NumberField";
 import { Card } from "@/components/ui/Card";
 import { Badge } from "@/components/ui/Badge";
+import { PageHeading } from "@/components/ui/PageHeading";
 import {
   computeManutencao,
   type CategoriaVeiculo,
@@ -28,16 +30,11 @@ export function ManutencaoSimulator() {
 
   return (
     <main className="mx-auto max-w-4xl px-6 py-12">
-      <header className="max-w-2xl">
-        <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">
-          Manutenção Preventiva vs. Corretiva
-        </h1>
-        <p className="mt-3 text-neutral-600">
-          O item que você não troca na hora certa quase sempre sai mais caro
-          depois. Veja o que está vencendo no seu carro e quanto você
-          economiza fazendo o preventivo.
-        </p>
-      </header>
+      <PageHeading icon={Wrench} title="Manutenção Preventiva vs. Corretiva">
+        O item que você não troca na hora certa quase sempre sai mais caro
+        depois. Veja o que está vencendo no seu carro e quanto você
+        economiza fazendo o preventivo.
+      </PageHeading>
 
       <div className="mt-8 grid gap-5 sm:grid-cols-2">
         <SelectField

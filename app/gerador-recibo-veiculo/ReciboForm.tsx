@@ -1,9 +1,11 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import { Receipt } from "lucide-react";
 import { TextField } from "@/components/ui/TextField";
 import { CurrencyInput } from "@/components/ui/CurrencyInput";
 import { Card } from "@/components/ui/Card";
+import { PageHeading } from "@/components/ui/PageHeading";
 import { gerarReciboPdf, type ReciboData } from "@/lib/pdf/recibo";
 import { validateRecibo } from "@/lib/validators/recibo";
 
@@ -57,16 +59,11 @@ export function ReciboForm() {
 
   return (
     <main className="mx-auto max-w-3xl px-6 py-12">
-      <header className="max-w-2xl">
-        <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">
-          Gerador de Recibo de Compra e Venda
-        </h1>
-        <p className="mt-3 text-neutral-600">
-          Preencha os dados abaixo e gere um recibo em PDF, pronto para
-          imprimir e assinar. Tudo roda no seu navegador — nada é enviado
-          para nenhum servidor.
-        </p>
-      </header>
+      <PageHeading icon={Receipt} title="Gerador de Recibo de Compra e Venda">
+        Preencha os dados abaixo e gere um recibo em PDF, pronto para
+        imprimir e assinar. Tudo roda no seu navegador — nada é enviado
+        para nenhum servidor.
+      </PageHeading>
 
       <form className="mt-10 space-y-8" onSubmit={handleSubmit}>
         <Card className="space-y-5">
