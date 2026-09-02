@@ -30,10 +30,16 @@ export default function Home() {
         >
           Gerar recibo de veículo
         </Link>
+        <Link
+          href="/tabela-ipva-por-estado"
+          className="inline-flex h-11 items-center rounded-md border border-neutral-300 px-6 text-sm font-semibold text-neutral-700 hover:bg-neutral-50"
+        >
+          Ver IPVA por estado
+        </Link>
       </div>
 
       <p className="mt-8 text-sm text-neutral-400">
-        A ferramenta de IPVA por estado chega na próxima etapa.
+        Guias completos sobre custo de carro chegam na próxima etapa.
       </p>
     </main>
   );

@@ -15,3 +15,14 @@ export function formatNumber(
     Number.isFinite(value) ? value : 0
   );
 }
+
+/** Formata uma data no formato "yyyy-mm-dd" por extenso em pt-BR (ex: "2 de setembro de 2026"). */
+export function formatDateBR(iso: string): string {
+  const date = new Date(`${iso}T00:00:00`);
+  if (Number.isNaN(date.getTime())) return iso;
+  return new Intl.DateTimeFormat("pt-BR", {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  }).format(date);
+}
