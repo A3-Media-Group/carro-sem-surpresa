@@ -1,9 +1,12 @@
 import {
   Calculator,
+  FileStack,
   Fuel,
+  Gauge,
   HandCoins,
   Landmark,
   Receipt,
+  Scale,
   Siren,
   Tag,
   Wrench,
@@ -78,5 +81,26 @@ export const TOOLS: Tool[] = [
     title: "Consulta Tabela FIPE",
     description:
       "Preço médio de mercado de carros, motos e caminhões, por marca, modelo e ano.",
+  },
+  {
+    href: "/simulador-consorcio-financiamento-vista",
+    icon: Scale,
+    title: "Consórcio vs. Financiamento vs. à Vista",
+    description:
+      "Três jeitos de pagar o mesmo carro lado a lado, pelo custo total — não só pelo valor da parcela.",
+  },
+  {
+    href: "/calculadora-custo-transferencia-veiculo",
+    icon: FileStack,
+    title: "Custo de Transferência",
+    description:
+      "Taxa do Detran, vistoria, reconhecimento de firma e placas — o custo de transferir a propriedade do carro.",
+  },
+  {
+    href: "/calculadora-consumo-medio",
+    icon: Gauge,
+    title: "Consumo Médio Real",
+    description:
+      "Km rodado ÷ litros abastecidos — o consumo de verdade do seu carro, pra usar nas outras calculadoras.",
   },
 ];

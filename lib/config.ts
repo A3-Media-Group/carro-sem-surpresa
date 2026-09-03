@@ -46,3 +46,26 @@ export const defaultAnnualDepreciationRate = 0.12; // 12% ao ano
  * por banco, score de crédito e prazo; sempre confirme com o seu banco.
  */
 export const defaultFinancingMonthlyRatePercent = 1.8; // % ao mês
+
+/**
+ * Taxa de administração total do consórcio, % sobre o valor do bem,
+ * diluída ao longo de todo o prazo (não é juros composto). Estimativa
+ * de mercado (típico 15%–20%); varia por administradora.
+ */
+export const defaultConsortiumAdminFeePercent = 18;
+
+/** Fundo de reserva do consórcio, % sobre o valor do bem, também diluído no prazo. */
+export const defaultConsortiumReserveFundPercent = 2;
+
+/**
+ * Custos de transferência de veículo — estimativas nacionais (a taxa de
+ * transferência varia por estado: SP ~R$319, MG ~R$155, média nacional
+ * ~R$286). Editável na hora de calcular; confirme sempre no Detran do
+ * seu estado.
+ */
+export const defaultTransferCosts = {
+  taxaTransferencia: 286, // R$, taxa do Detran
+  vistoria: 115, // R$, quando exigida
+  reconhecimentoFirma: 20, // R$
+  novasPlacas: 250, // R$, só quando precisa trocar (mudança de estado/município)
+} as const;

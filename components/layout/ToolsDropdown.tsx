@@ -49,7 +49,7 @@ export function ToolsDropdown() {
         <div
           role="menu"
           aria-label="Ferramentas"
-          className="absolute right-0 top-full z-50 mt-2 w-[560px] max-w-[90vw] rounded-xl border border-neutral-200 bg-white p-3 text-left shadow-lg"
+          className="absolute right-0 top-full z-50 mt-2 max-h-[80vh] w-[560px] max-w-[90vw] overflow-y-auto rounded-xl border border-neutral-200 bg-white p-3 text-left shadow-lg"
         >
           <div className="grid grid-cols-2 gap-1">
             {TOOLS.map((tool) => (
