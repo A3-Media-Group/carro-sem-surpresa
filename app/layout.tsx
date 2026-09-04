@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { AdSlot } from "@/components/ads/AdSlot";
+import { siteUrl } from "@/lib/site";
 import "./globals.css";
 
 const inter = Inter({
@@ -10,7 +11,6 @@ const inter = Inter({
   subsets: ["latin"],
 });
 
-const siteUrl = "https://carrosemsurpresa.com.br";
 const siteTitle = "Carro Sem Surpresa — Custo Real de Ter um Carro no Brasil";
 const siteDescription =
   "Calculadoras gratuitas pra você nunca mais ser pego de surpresa pelos custos escondidos de comprar, manter ou vender um carro: custo real de posse, manutenção, recibo de veículo e IPVA por estado.";
