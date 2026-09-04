@@ -1,0 +1,4 @@
+User-Agent: *
+Allow: /
+
+Sitemap: https://carrosemsurpresa.com.br/sitemap.xml
