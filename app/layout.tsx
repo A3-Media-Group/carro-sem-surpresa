@@ -40,6 +40,26 @@ export const metadata: Metadata = {
   },
 };
 
+// Organization + WebSite JSON-LD, no <head> de toda página — ajuda o
+// Google a entender a identidade do site (nome, logo, descrição) fora
+// do texto visível, sem depender de nenhuma página específica.
+const organizationJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "Carro Sem Surpresa",
+  url: siteUrl,
+  logo: `${siteUrl}/icon.png`,
+  description: siteDescription,
+};
+
+const websiteJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: "Carro Sem Surpresa",
+  url: siteUrl,
+  inLanguage: "pt-BR",
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -48,6 +68,18 @@ export default function RootLayout({
   return (
     <html lang="pt-BR" className={inter.variable}>
       <body className="flex min-h-screen flex-col font-sans antialiased">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(organizationJsonLd).replace(/</g, "\\u003c"),
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(websiteJsonLd).replace(/</g, "\\u003c"),
+          }}
+        />
         <Header />
         <AdSlot position="header" className="mx-auto my-3 max-w-6xl px-6" />
         <div className="flex flex-1 flex-col">{children}</div>

@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
-import { ChevronDown } from "lucide-react";
+import { ArrowRight, ChevronDown } from "lucide-react";
 import { TOOL_CATEGORY_LABELS, TOOLS, type ToolCategory } from "@/lib/tools";
 
 const CATEGORY_ORDER: ToolCategory[] = ["calculadora", "consulta", "gerador", "diagnostico"];
@@ -85,6 +85,16 @@ export function ToolsDropdown() {
               </div>
             );
           })}
+          <Link
+            href="/ferramentas"
+            prefetch={false}
+            role="menuitem"
+            onClick={() => setOpen(false)}
+            className="mt-1 flex items-center justify-center gap-1 rounded-lg border-t border-neutral-100 pt-3 text-sm font-semibold text-brand-orange-dark hover:underline"
+          >
+            Ver todas as ferramentas
+            <ArrowRight size={15} />
+          </Link>
         </div>
       )}
     </div>
