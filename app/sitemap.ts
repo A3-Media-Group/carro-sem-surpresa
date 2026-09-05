@@ -11,6 +11,16 @@ const GUIAS_SLUGS = [
   "como-calcular-se-carro-cabe-no-orcamento",
   "reduzir-custo-por-km-rodado",
   "faq-custo-de-carro",
+  "checklist-comprar-carro-usado",
+  "carro-0km-ou-seminovo",
+  "seguro-auto-vale-a-pena",
+  "carro-com-sinistro-vale-a-pena-comprar",
+  "ipva-atrasado-multa-e-como-regularizar",
+  "licenciamento-atrasado-multa",
+  "assinatura-de-carro-vs-financiamento-vs-a-vista",
+  "carro-eletrico-ou-hibrido-custo-de-manutencao",
+  "revisao-fora-da-concessionaria-perde-garantia",
+  "quanto-o-carro-desvaloriza-por-ano",
 ];
 
 /**

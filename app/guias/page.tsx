@@ -28,6 +28,66 @@ const guias = [
     resumo:
       "Depreciação no primeiro ano, manutenção de elétrico e isenção de IPVA — direto ao ponto.",
   },
+  {
+    href: "/guias/checklist-comprar-carro-usado",
+    titulo: "Comprar Carro Usado: Checklist Completo Antes de Fechar Negócio",
+    resumo:
+      "16 pontos pra checar antes de assinar qualquer coisa — documentação, lataria, test-drive e vistoria.",
+  },
+  {
+    href: "/guias/carro-0km-ou-seminovo",
+    titulo: "0km ou Seminovo: Qual Vale Mais a Pena",
+    resumo:
+      "A resposta muda de acordo com quanto tempo você fica com o carro e quanto roda por mês.",
+  },
+  {
+    href: "/guias/seguro-auto-vale-a-pena",
+    titulo: "Seguro Auto: Vale a Pena, Como Funciona e Quanto Custa",
+    resumo:
+      "O que define o preço da apólice, franquia alta vs. reduzida, e quando faz sentido não ter completo.",
+  },
+  {
+    href: "/guias/carro-com-sinistro-vale-a-pena-comprar",
+    titulo: "Carro com Sinistro (Batido): Riscos de Comprar e Como Verificar",
+    resumo:
+      "O desconto no preço não é generosidade — é o preço do risco que está sendo repassado a você.",
+  },
+  {
+    href: "/guias/ipva-atrasado-multa-e-como-regularizar",
+    titulo: "IPVA Atrasado: Multa, Juros e Como Regularizar",
+    resumo:
+      "Multa diária, juros, negativação e risco de apreensão — e como regularizar em qualquer estado.",
+  },
+  {
+    href: "/guias/licenciamento-atrasado-multa",
+    titulo: "Licenciamento Atrasado: Multa e o que Acontece",
+    resumo:
+      "Atraso de um dia já é infração gravíssima: R$293,47 de multa e 7 pontos na CNH.",
+  },
+  {
+    href: "/guias/assinatura-de-carro-vs-financiamento-vs-a-vista",
+    titulo: "Assinatura de Carro vs. Financiamento vs. à Vista",
+    resumo:
+      "Um jeito de ter carro sem ser dono de nada — veja quando isso compensa e quando não compensa.",
+  },
+  {
+    href: "/guias/carro-eletrico-ou-hibrido-custo-de-manutencao",
+    titulo: "Carro Elétrico ou Híbrido: o Custo Real de Manutenção Compensa?",
+    resumo:
+      "Menos peça pra trocar, mas a conta muda se a bateria sair da garantia.",
+  },
+  {
+    href: "/guias/revisao-fora-da-concessionaria-perde-garantia",
+    titulo: "Revisão Fora da Concessionária Perde a Garantia?",
+    resumo:
+      "O que diz o Código de Defesa do Consumidor — e o que a concessionária não te conta.",
+  },
+  {
+    href: "/guias/quanto-o-carro-desvaloriza-por-ano",
+    titulo: "Quanto o Carro Desvaloriza por Ano: Tabela de Depreciação",
+    resumo:
+      "O gasto que ninguém vê saindo da conta, mas que corrói o patrimônio todo mês.",
+  },
 ];
 
 export default function GuiasPage() {
