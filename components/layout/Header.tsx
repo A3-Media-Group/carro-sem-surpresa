@@ -32,6 +32,13 @@ export function Header() {
         <nav aria-label="Menu principal" className="hidden items-center gap-1 sm:flex">
           <ToolsDropdown />
           <Link
+            href="/calculadoras"
+            prefetch={false}
+            className="flex h-11 items-center rounded-md px-3 text-sm font-medium text-white/90 hover:bg-white/10 hover:text-brand-orange"
+          >
+            Calculadoras
+          </Link>
+          <Link
             href="/guias"
             prefetch={false}
             className="flex h-11 items-center rounded-md px-3 text-sm font-medium text-white/90 hover:bg-white/10 hover:text-brand-orange"

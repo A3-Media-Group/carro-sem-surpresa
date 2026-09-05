@@ -115,7 +115,7 @@ export default function Home() {
       </section>
 
       {/* FERRAMENTAS */}
-      <section className="mx-auto w-full max-w-5xl px-6 py-16 sm:py-20">
+      <section id="ferramentas" className="mx-auto w-full max-w-5xl px-6 py-16 sm:py-20">
         <div className="max-w-2xl">
           <h2 className="text-2xl font-bold tracking-tight text-neutral-900 sm:text-3xl">
             As {TOOLS.length} ferramentas

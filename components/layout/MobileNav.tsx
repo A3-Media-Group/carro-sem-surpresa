@@ -41,6 +41,16 @@ export function MobileNav() {
             ))}
             <li className="mt-1 border-t border-white/10 pt-1">
               <Link
+                href="/calculadoras"
+                prefetch={false}
+                onClick={() => setOpen(false)}
+                className="flex min-h-11 items-center rounded-md px-3 text-base font-medium text-white hover:bg-white/10 hover:text-brand-orange"
+              >
+                Calculadoras
+              </Link>
+            </li>
+            <li>
+              <Link
                 href="/guias"
                 prefetch={false}
                 onClick={() => setOpen(false)}

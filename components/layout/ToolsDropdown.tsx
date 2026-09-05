@@ -3,7 +3,9 @@
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { ChevronDown } from "lucide-react";
-import { TOOLS } from "@/lib/tools";
+import { TOOL_CATEGORY_LABELS, TOOLS, type ToolCategory } from "@/lib/tools";
+
+const CATEGORY_ORDER: ToolCategory[] = ["calculadora", "consulta", "gerador", "diagnostico"];
 
 export function ToolsDropdown() {
   const [open, setOpen] = useState(false);
@@ -51,27 +53,38 @@ export function ToolsDropdown() {
           aria-label="Ferramentas"
           className="absolute right-0 top-full z-50 mt-2 max-h-[80vh] w-[560px] max-w-[90vw] overflow-y-auto rounded-xl border border-neutral-200 bg-white p-3 text-left shadow-lg"
         >
-          <div className="grid grid-cols-2 gap-1">
-            {TOOLS.map((tool) => (
-              <Link
-                key={tool.href}
-                href={tool.href}
-                prefetch={false}
-                role="menuitem"
-                onClick={() => setOpen(false)}
-                className="flex items-start gap-3 rounded-lg p-3 hover:bg-neutral-50"
-              >
-                <span className="mt-0.5 inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-orange-50 text-brand-orange-dark">
-                  <tool.icon size={18} />
-                </span>
-                <span>
-                  <span className="block text-sm font-semibold text-neutral-900">
-                    {tool.title}
-                  </span>
-                </span>
-              </Link>
-            ))}
-          </div>
+          {CATEGORY_ORDER.map((category) => {
+            const items = TOOLS.filter((tool) => tool.category === category);
+            if (items.length === 0) return null;
+            return (
+              <div key={category} className="mb-2 last:mb-0">
+                <p className="px-3 pb-1 pt-2 text-xs font-semibold uppercase tracking-wide text-neutral-400">
+                  {TOOL_CATEGORY_LABELS[category]}
+                </p>
+                <div className="grid grid-cols-2 gap-1">
+                  {items.map((tool) => (
+                    <Link
+                      key={tool.href}
+                      href={tool.href}
+                      prefetch={false}
+                      role="menuitem"
+                      onClick={() => setOpen(false)}
+                      className="flex items-start gap-3 rounded-lg p-3 hover:bg-neutral-50"
+                    >
+                      <span className="mt-0.5 inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-orange-50 text-brand-orange-dark">
+                        <tool.icon size={18} />
+                      </span>
+                      <span>
+                        <span className="block text-sm font-semibold text-neutral-900">
+                          {tool.title}
+                        </span>
+                      </span>
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            );
+          })}
         </div>
       )}
     </div>
