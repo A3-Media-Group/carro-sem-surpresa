@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { ToolsDropdown } from "./ToolsDropdown";
 import { MobileNav } from "./MobileNav";
@@ -6,8 +7,22 @@ export function Header() {
   return (
     <header className="sticky top-0 z-50 bg-graphite text-white">
       <div className="relative mx-auto flex h-16 max-w-6xl items-center justify-between px-6">
-        <Link href="/" prefetch={false} className="text-lg font-bold tracking-tight">
-          Carro <span className="text-brand-orange">Sem Surpresa</span>
+        <Link
+          href="/"
+          prefetch={false}
+          className="flex items-center gap-2 text-lg font-bold tracking-tight"
+        >
+          <Image
+            src="/logo-icon.png"
+            alt=""
+            width={562}
+            height={241}
+            priority
+            className="h-9 w-auto"
+          />
+          <span>
+            Carro <span className="text-brand-orange">Sem Surpresa</span>
+          </span>
         </Link>
 
         {/* prefetch={false} nos links: o header aparece em toda página,
