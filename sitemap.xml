@@ -16,6 +16,11 @@
 <priority>0.8</priority>
 </url>
 <url>
+<loc>https://carrosemsurpresa.com.br/ferramentas</loc>
+<changefreq>weekly</changefreq>
+<priority>0.8</priority>
+</url>
+<url>
 <loc>https://carrosemsurpresa.com.br/politica-de-privacidade</loc>
 <changefreq>yearly</changefreq>
 <priority>0.2</priority>
