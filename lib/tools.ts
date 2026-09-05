@@ -8,6 +8,7 @@ import {
   Receipt,
   Scale,
   Siren,
+  Stethoscope,
   Tag,
   Wrench,
   type LucideIcon,
@@ -102,5 +103,12 @@ export const TOOLS: Tool[] = [
     title: "Consumo Médio Real",
     description:
       "Km rodado ÷ litros abastecidos — o consumo de verdade do seu carro, pra usar nas outras calculadoras.",
+  },
+  {
+    href: "/diagnostico-de-problemas-do-carro",
+    icon: Stethoscope,
+    title: "Diagnóstico de Problemas",
+    description:
+      "Digite o sintoma do seu carro e veja as causas prováveis, o nível de urgência e o que perguntar antes de autorizar o reparo — pra não ser enganado pelo mecânico.",
   },
 ];
