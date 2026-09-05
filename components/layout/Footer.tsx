@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { AdSlot } from "@/components/ads/AdSlot";
 
@@ -16,10 +17,19 @@ export function Footer() {
         <AdSlot position="footer" />
 
         <div className="mt-8 flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
-          <p className="max-w-md text-sm text-white/60">
-            © {year} Carro Sem Surpresa. Conteúdo informativo, não substitui
-            aconselhamento financeiro, contábil ou jurídico.
-          </p>
+          <div className="flex items-start gap-3">
+            <Image
+              src="/logo-icon.png"
+              alt=""
+              width={562}
+              height={241}
+              className="h-6 w-auto shrink-0 opacity-90"
+            />
+            <p className="max-w-md text-sm text-white/60">
+              © {year} Carro Sem Surpresa. Conteúdo informativo, não
+              substitui aconselhamento financeiro, contábil ou jurídico.
+            </p>
+          </div>
           <ul className="flex flex-wrap gap-x-6 gap-y-3">
             {FOOTER_LINKS.map((link) => (
               <li key={link.href}>
