@@ -4,10 +4,28 @@ import { ArrowRight, Calculator } from "lucide-react";
 import { PageHeading } from "@/components/ui/PageHeading";
 import { CALCULADORAS } from "@/lib/tools";
 
-export const metadata: Metadata = {
+const pageMetadata: Metadata = {
   title: "Calculadoras do Custo de um Carro",
   description:
     "Todas as calculadoras do Carro Sem Surpresa num só lugar: custo de posse, financiamento, consórcio, manutenção, transferência, consumo e álcool ou gasolina.",
+};
+
+export const metadata: Metadata = {
+  ...pageMetadata,
+  alternates: { canonical: "/calculadoras" },
+  openGraph: {
+    title: String(pageMetadata.title),
+    description: pageMetadata.description ?? undefined,
+    url: "/calculadoras",
+    type: "website",
+    images: [{ url: "/social-card.png", width: 1200, height: 630 }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: String(pageMetadata.title),
+    description: pageMetadata.description ?? undefined,
+    images: ["/social-card.png"],
+  },
 };
 
 export default function CalculadorasPage() {
@@ -15,9 +33,9 @@ export default function CalculadorasPage() {
     <main className="mx-auto max-w-3xl px-6 py-12">
       <PageHeading icon={Calculator} title="Calculadoras">
         As {CALCULADORAS.length} calculadoras do site — as que recebem os
-        números do seu carro e fazem a conta pra você. Pra tabelas de
-        referência (IPVA, multas, FIPE), recibo em PDF e o diagnóstico por
-        sintoma, veja a lista completa em{" "}
+        números do seu carro e fazem a conta pra você. Pra tabelas de referência
+        (IPVA, multas, FIPE), recibo em PDF e o diagnóstico por sintoma, veja a
+        lista completa em{" "}
         <Link href="/#ferramentas" prefetch={false} className="underline">
           Ferramentas
         </Link>

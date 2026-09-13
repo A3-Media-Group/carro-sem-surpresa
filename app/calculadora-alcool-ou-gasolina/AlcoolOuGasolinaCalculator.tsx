@@ -11,7 +11,7 @@ import { formatBRL, formatNumber } from "@/lib/format";
 
 export function AlcoolOuGasolinaCalculator() {
   const [gasolinaPrice, setGasolinaPrice] = useState<number>(
-    fuelPrices.gasolina
+    fuelPrices.gasolina,
   );
   const [etanolPrice, setEtanolPrice] = useState<number>(fuelPrices.etanol);
   const [gasolinaConsumption, setGasolinaConsumption] = useState(12);
@@ -27,21 +27,30 @@ export function AlcoolOuGasolinaCalculator() {
         etanolConsumption,
         kmPerMonth,
       }),
-    [gasolinaPrice, etanolPrice, gasolinaConsumption, etanolConsumption, kmPerMonth]
+    [
+      gasolinaPrice,
+      etanolPrice,
+      gasolinaConsumption,
+      etanolConsumption,
+      kmPerMonth,
+    ],
   );
 
   const cheaperLabel =
-    result.cheaper === "gasolina"
+    result?.cheaper === "gasolina"
       ? "Gasolina"
-      : result.cheaper === "etanol"
+      : result?.cheaper === "etanol"
         ? "Etanol"
         : "Empate";
 
   return (
     <main className="mx-auto max-w-5xl px-6 py-12">
-      <PageHeading icon={Fuel} title="Álcool ou Gasolina: o que Compensa Abastecer">
-        Esqueça a regra genérica dos 70%. Com o consumo real do seu carro,
-        a conta é exata — não uma média nacional.
+      <PageHeading
+        icon={Fuel}
+        title="Álcool ou Gasolina: o que Compensa Abastecer"
+      >
+        Compare o custo por quilômetro usando o consumo do seu carro. Os valores
+        iniciais são referências editáveis, não preços em tempo real.
       </PageHeading>
 
       <div className="mt-10 grid gap-10 lg:grid-cols-2">
@@ -85,71 +94,83 @@ export function AlcoolOuGasolinaCalculator() {
           />
         </form>
 
-        <div className="space-y-6">
-          <Card className="text-center">
-            <p className="text-sm text-neutral-500">Vale mais a pena abastecer com</p>
-            <p className="mt-1 text-4xl font-bold tracking-tight text-neutral-900">
-              {cheaperLabel}
-            </p>
-            {result.cheaper !== "empate" && (
-              <p className="mt-2 text-sm text-neutral-600">
-                Economia de {formatBRL(result.costPerKmDifference)} por km
+        {result ? (
+          <div className="space-y-6" aria-live="polite">
+            <Card className="text-center">
+              <p className="text-sm text-neutral-500">
+                Vale mais a pena abastecer com
               </p>
-            )}
-          </Card>
+              <p className="mt-1 text-4xl font-bold tracking-tight text-neutral-900">
+                {cheaperLabel}
+              </p>
+              {result.cheaper !== "empate" && (
+                <p className="mt-2 text-sm text-neutral-600">
+                  Economia de {formatBRL(result.costPerKmDifference)} por km
+                </p>
+              )}
+            </Card>
 
-          <div className="grid gap-4 sm:grid-cols-2">
-            <div className="rounded-lg bg-neutral-50 p-4">
-              <p className="text-xs font-medium uppercase tracking-wide text-neutral-500">
-                Custo por km — Gasolina
-              </p>
-              <p className="mt-1 text-xl font-bold text-neutral-900">
-                {formatBRL(result.costPerKmGasolina)}
-              </p>
+            <div className="grid gap-4 sm:grid-cols-2">
+              <div className="rounded-lg bg-neutral-50 p-4">
+                <p className="text-xs font-medium uppercase tracking-wide text-neutral-500">
+                  Custo por km — Gasolina
+                </p>
+                <p className="mt-1 text-xl font-bold text-neutral-900">
+                  {formatBRL(result.costPerKmGasolina)}
+                </p>
+              </div>
+              <div className="rounded-lg bg-neutral-50 p-4">
+                <p className="text-xs font-medium uppercase tracking-wide text-neutral-500">
+                  Custo por km — Etanol
+                </p>
+                <p className="mt-1 text-xl font-bold text-neutral-900">
+                  {formatBRL(result.costPerKmEtanol)}
+                </p>
+              </div>
             </div>
-            <div className="rounded-lg bg-neutral-50 p-4">
-              <p className="text-xs font-medium uppercase tracking-wide text-neutral-500">
-                Custo por km — Etanol
+
+            <Card>
+              <p className="text-sm text-neutral-600">
+                No seu carro, o etanol compensa quando custar até{" "}
+                <strong>
+                  {formatNumber(result.breakEvenRatio * 100, {
+                    maximumFractionDigits: 0,
+                  })}
+                  %
+                </strong>{" "}
+                do preço da gasolina — não os 70% da regra genérica. Hoje, com
+                os preços que você digitou, o etanol está custando{" "}
+                <strong>
+                  {formatNumber(result.actualPriceRatio * 100, {
+                    maximumFractionDigits: 0,
+                  })}
+                  %
+                </strong>{" "}
+                do preço da gasolina.
               </p>
-              <p className="mt-1 text-xl font-bold text-neutral-900">
-                {formatBRL(result.costPerKmEtanol)}
-              </p>
-            </div>
+            </Card>
+
+            <p className="text-sm font-medium text-neutral-900">
+              Rodando {formatNumber(kmPerMonth)} km/mês, escolher sempre o
+              combustível mais barato economiza até{" "}
+              {formatBRL(result.monthlySavings)} por mês.
+            </p>
+
+            <p className="text-xs text-neutral-500">
+              Valores estimados para fins informativos, não substituem
+              aconselhamento financeiro. O consumo real varia com o trânsito, a
+              condução e a manutenção do carro.
+            </p>
           </div>
-
-          <Card>
-            <p className="text-sm text-neutral-600">
-              No seu carro, o etanol compensa quando custar até{" "}
-              <strong>
-                {formatNumber(result.breakEvenRatio * 100, {
-                  maximumFractionDigits: 0,
-                })}
-                %
-              </strong>{" "}
-              do preço da gasolina — não os 70% da regra genérica. Hoje, com
-              os preços que você digitou, o etanol está custando{" "}
-              <strong>
-                {formatNumber(result.actualPriceRatio * 100, {
-                  maximumFractionDigits: 0,
-                })}
-                %
-              </strong>{" "}
-              do preço da gasolina.
-            </p>
-          </Card>
-
-          <p className="text-sm font-medium text-neutral-900">
-            Rodando {formatNumber(kmPerMonth)} km/mês, escolher sempre o
-            combustível mais barato economiza até{" "}
-            {formatBRL(result.monthlySavings)} por mês.
+        ) : (
+          <p
+            role="status"
+            className="rounded-xl border border-amber-200 bg-amber-50 p-5"
+          >
+            Informe preços e consumos maiores que zero e uma distância mensal
+            não negativa para comparar os combustíveis.
           </p>
-
-          <p className="text-xs text-neutral-500">
-            Valores estimados para fins informativos, não substituem
-            aconselhamento financeiro. O consumo real varia com o trânsito,
-            a condução e a manutenção do carro.
-          </p>
-        </div>
+        )}
       </div>
     </main>
   );

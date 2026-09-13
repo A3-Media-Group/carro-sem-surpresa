@@ -5,7 +5,13 @@ import Link from "next/link";
 import { ArrowRight, ChevronDown } from "lucide-react";
 import { TOOL_CATEGORY_LABELS, TOOLS, type ToolCategory } from "@/lib/tools";
 
-const CATEGORY_ORDER: ToolCategory[] = ["calculadora", "consulta", "gerador", "diagnostico"];
+const CATEGORY_ORDER: ToolCategory[] = [
+  "calculadora",
+  "consulta",
+  "gerador",
+  "diagnostico",
+  "checklist",
+];
 
 export function ToolsDropdown() {
   const [open, setOpen] = useState(false);
@@ -36,7 +42,7 @@ export function ToolsDropdown() {
       <button
         type="button"
         onClick={() => setOpen((v) => !v)}
-        aria-haspopup="menu"
+        aria-controls="tools-navigation"
         aria-expanded={open}
         className="flex h-11 items-center gap-1 rounded-md px-3 text-sm font-medium text-white/90 hover:bg-white/10 hover:text-brand-orange"
       >
@@ -49,7 +55,7 @@ export function ToolsDropdown() {
 
       {open && (
         <div
-          role="menu"
+          id="tools-navigation"
           aria-label="Ferramentas"
           className="absolute right-0 top-full z-50 mt-2 max-h-[80vh] w-[560px] max-w-[90vw] overflow-y-auto rounded-xl border border-neutral-200 bg-white p-3 text-left shadow-lg"
         >
@@ -67,7 +73,6 @@ export function ToolsDropdown() {
                       key={tool.href}
                       href={tool.href}
                       prefetch={false}
-                      role="menuitem"
                       onClick={() => setOpen(false)}
                       className="flex items-start gap-3 rounded-lg p-3 hover:bg-neutral-50"
                     >

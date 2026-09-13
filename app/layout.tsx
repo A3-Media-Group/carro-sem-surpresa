@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Manrope } from "next/font/google";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { AdSlot } from "@/components/ads/AdSlot";
@@ -10,6 +10,8 @@ const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
 });
+
+const manrope = Manrope({ variable: "--font-manrope", subsets: ["latin"] });
 
 const siteTitle = "Carro Sem Surpresa — Custo Real de Ter um Carro no Brasil";
 const siteDescription =
@@ -29,11 +31,18 @@ export const metadata: Metadata = {
     siteName: "Carro Sem Surpresa",
     locale: "pt_BR",
     type: "website",
+    images: [{ url: "/social-card.png", width: 1200, height: 630 }],
   },
   twitter: {
     card: "summary_large_image",
+    images: ["/social-card.png"],
     title: siteTitle,
     description: siteDescription,
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { "max-image-preview": "large" },
   },
   verification: {
     google: "FHC_KudjQZbga3CdN602YY1G18m61ybzosUxqS3Sr_U",
@@ -66,7 +75,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt-BR" className={inter.variable}>
+    <html lang="pt-BR" className={`${inter.variable} ${manrope.variable}`}>
       <body className="flex min-h-screen flex-col font-sans antialiased">
         <script
           type="application/ld+json"
@@ -80,9 +89,14 @@ export default function RootLayout({
             __html: JSON.stringify(websiteJsonLd).replace(/</g, "\\u003c"),
           }}
         />
+        <a href="#conteudo" className="skip-link">
+          Pular para o conteúdo
+        </a>
         <Header />
         <AdSlot position="header" className="mx-auto my-3 max-w-6xl px-6" />
-        <div className="flex flex-1 flex-col">{children}</div>
+        <div id="conteudo" tabIndex={-1} className="flex flex-1 flex-col">
+          {children}
+        </div>
         <Footer />
       </body>
     </html>

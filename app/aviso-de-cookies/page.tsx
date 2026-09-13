@@ -1,9 +1,27 @@
 import type { Metadata } from "next";
 
-export const metadata: Metadata = {
+const pageMetadata: Metadata = {
   title: "Aviso de Cookies",
   description:
     "Como o Carro Sem Surpresa usa cookies e ferramentas de terceiros, e como você pode gerenciar suas preferências.",
+};
+
+export const metadata: Metadata = {
+  ...pageMetadata,
+  alternates: { canonical: "/aviso-de-cookies" },
+  openGraph: {
+    title: String(pageMetadata.title),
+    description: pageMetadata.description ?? undefined,
+    url: "/aviso-de-cookies",
+    type: "website",
+    images: [{ url: "/social-card.png", width: 1200, height: 630 }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: String(pageMetadata.title),
+    description: pageMetadata.description ?? undefined,
+    images: ["/social-card.png"],
+  },
 };
 
 export default function AvisoDeCookiesPage() {
@@ -20,10 +38,10 @@ export default function AvisoDeCookiesPage() {
             O que são cookies
           </h2>
           <p className="mt-2">
-            Cookies são pequenos arquivos de texto armazenados no seu
-            navegador quando você visita um site. Eles ajudam o site a
-            funcionar corretamente, lembrar preferências e entender como os
-            visitantes o utilizam.
+            Cookies são pequenos arquivos de texto armazenados no seu navegador
+            quando você visita um site. Eles ajudam o site a funcionar
+            corretamente, lembrar preferências e entender como os visitantes o
+            utilizam.
           </p>
         </section>
 
@@ -34,18 +52,18 @@ export default function AvisoDeCookiesPage() {
           <ul className="mt-2 list-disc space-y-2 pl-6">
             <li>
               <strong>Cookies essenciais:</strong> necessários para o
-              funcionamento básico do site (por exemplo, lembrar que você já
-              viu este aviso).
+              funcionamento básico do site (por exemplo, lembrar que você já viu
+              este aviso).
             </li>
             <li>
               <strong>Cookies de audiência/estatística:</strong> usados para
-              entender quantas pessoas visitam o site e quais páginas são
-              mais acessadas.
+              entender quantas pessoas visitam o site e quais páginas são mais
+              acessadas.
             </li>
             <li>
-              <strong>Cookies de publicidade (Google AdSense):</strong>{" "}
-              usados pelo Google e seus parceiros para exibir anúncios
-              relevantes com base na sua navegação.
+              <strong>Cookies de publicidade (Google AdSense):</strong> usados
+              pelo Google e seus parceiros para exibir anúncios relevantes com
+              base na sua navegação.
             </li>
           </ul>
         </section>

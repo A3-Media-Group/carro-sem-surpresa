@@ -35,8 +35,19 @@ export interface FuelComparisonResult {
  * abaixo dela, o etanol compensa; acima, a gasolina compensa.
  */
 export function computeFuelComparison(
-  inputs: FuelComparisonInputs
-): FuelComparisonResult {
+  inputs: FuelComparisonInputs,
+): FuelComparisonResult | null {
+  if (
+    ![
+      inputs.gasolinaPrice,
+      inputs.etanolPrice,
+      inputs.gasolinaConsumption,
+      inputs.etanolConsumption,
+    ].every((value) => Number.isFinite(value) && value > 0) ||
+    !Number.isFinite(inputs.kmPerMonth) ||
+    inputs.kmPerMonth < 0
+  )
+    return null;
   const {
     gasolinaPrice,
     etanolPrice,

@@ -21,13 +21,19 @@ import {
  * "gerador": produz um documento (PDF) a partir de dados do usuário.
  * "diagnostico": busca por sintoma/palavra-chave, não por número.
  */
-export type ToolCategory = "calculadora" | "consulta" | "gerador" | "diagnostico";
+export type ToolCategory =
+  | "calculadora"
+  | "consulta"
+  | "gerador"
+  | "diagnostico"
+  | "checklist";
 
 export const TOOL_CATEGORY_LABELS: Record<ToolCategory, string> = {
   calculadora: "Calculadoras",
   consulta: "Consultas e Tabelas",
   gerador: "Geradores de Documento",
   diagnostico: "Diagnóstico",
+  checklist: "Checklists",
 };
 
 export interface Tool {
@@ -45,6 +51,22 @@ export interface Tool {
  * quando uma ferramenta nova entrar.
  */
 export const TOOLS: Tool[] = [
+  {
+    href: "/calculadora-custo-viagem",
+    icon: Fuel,
+    title: "Custo de Viagem",
+    description:
+      "Combustível, pedágios, ida e volta e divisão por pessoa. Planeje o percurso com seus próprios valores.",
+    category: "calculadora",
+  },
+  {
+    href: "/checklist-carro-usado",
+    icon: FileStack,
+    title: "Checklist do Carro Usado",
+    description:
+      "Marque as verificações de documentos, inspeção e orçamento antes da compra. Imprima sua lista.",
+    category: "checklist",
+  },
   {
     href: "/calculadora-custo-de-posse",
     icon: Calculator,
@@ -143,4 +165,6 @@ export const TOOLS: Tool[] = [
   },
 ];
 
-export const CALCULADORAS = TOOLS.filter((tool) => tool.category === "calculadora");
+export const CALCULADORAS = TOOLS.filter(
+  (tool) => tool.category === "calculadora",
+);

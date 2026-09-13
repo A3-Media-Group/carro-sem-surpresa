@@ -1,27 +1,12 @@
 import type { MetadataRoute } from "next";
 import { siteUrl } from "@/lib/site";
+import { GUIDES } from "@/lib/guides";
 import { TOOLS } from "@/lib/tools";
 
 // Necessário com output: "export" (ver next.config.ts) — sem isso o
 // build falha, porque essas rotas especiais são tratadas como Route
 // Handlers dinâmicos por padrão.
 export const dynamic = "force-static";
-
-const GUIAS_SLUGS = [
-  "como-calcular-se-carro-cabe-no-orcamento",
-  "reduzir-custo-por-km-rodado",
-  "faq-custo-de-carro",
-  "checklist-comprar-carro-usado",
-  "carro-0km-ou-seminovo",
-  "seguro-auto-vale-a-pena",
-  "carro-com-sinistro-vale-a-pena-comprar",
-  "ipva-atrasado-multa-e-como-regularizar",
-  "licenciamento-atrasado-multa",
-  "assinatura-de-carro-vs-financiamento-vs-a-vista",
-  "carro-eletrico-ou-hibrido-custo-de-manutencao",
-  "revisao-fora-da-concessionaria-perde-garantia",
-  "quanto-o-carro-desvaloriza-por-ano",
-];
 
 /**
  * Gera o sitemap.xml dinamicamente a partir das rotas reais do site —
@@ -30,6 +15,7 @@ const GUIAS_SLUGS = [
  */
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticRoutes: MetadataRoute.Sitemap = [
+    { url: `${siteUrl}/sobre`, changeFrequency: "yearly", priority: 0.4 },
     {
       url: siteUrl,
       changeFrequency: "weekly",
@@ -68,8 +54,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.9,
   }));
 
-  const guiaRoutes: MetadataRoute.Sitemap = GUIAS_SLUGS.map((slug) => ({
-    url: `${siteUrl}/guias/${slug}`,
+  const guiaRoutes: MetadataRoute.Sitemap = GUIDES.map((guide) => ({
+    url: `${siteUrl}${guide.href}`,
     changeFrequency: "monthly",
     priority: 0.7,
   }));

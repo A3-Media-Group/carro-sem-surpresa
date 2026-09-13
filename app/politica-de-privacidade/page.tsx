@@ -1,9 +1,27 @@
 import type { Metadata } from "next";
 
-export const metadata: Metadata = {
+const pageMetadata: Metadata = {
   title: "Política de Privacidade",
   description:
     "Como o Carro Sem Surpresa coleta, usa e protege os dados dos visitantes do site.",
+};
+
+export const metadata: Metadata = {
+  ...pageMetadata,
+  alternates: { canonical: "/politica-de-privacidade" },
+  openGraph: {
+    title: String(pageMetadata.title),
+    description: pageMetadata.description ?? undefined,
+    url: "/politica-de-privacidade",
+    type: "website",
+    images: [{ url: "/social-card.png", width: 1200, height: 630 }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: String(pageMetadata.title),
+    description: pageMetadata.description ?? undefined,
+    images: ["/social-card.png"],
+  },
 };
 
 export default function PoliticaDePrivacidadePage() {
@@ -23,10 +41,10 @@ export default function PoliticaDePrivacidadePage() {
           </h2>
           <p className="mt-2">
             O Carro Sem Surpresa (carrosemsurpresa.com.br) é um site com
-            calculadoras e conteúdos gratuitos sobre custos de comprar,
-            manter e vender um carro no Brasil. Esta política explica como
-            tratamos os dados de quem visita o site, em conformidade com a
-            Lei Geral de Proteção de Dados (Lei nº 13.709/2018 — LGPD).
+            calculadoras e conteúdos gratuitos sobre custos de comprar, manter e
+            vender um carro no Brasil. Esta política explica como tratamos os
+            dados de quem visita o site, em conformidade com a Lei Geral de
+            Proteção de Dados (Lei nº 13.709/2018 — LGPD).
           </p>
         </section>
 
@@ -36,12 +54,12 @@ export default function PoliticaDePrivacidadePage() {
           </h2>
           <p className="mt-2">
             As calculadoras do site (custo de posse, manutenção, recibo de
-            veículo, IPVA) rodam inteiramente no seu navegador: os valores
-            que você digita não são enviados para os nossos servidores nem
+            veículo, IPVA) rodam inteiramente no seu navegador: os valores que
+            você digita não são enviados para os nossos servidores nem
             armazenados por nós. Podemos coletar automaticamente dados de
-            navegação (como páginas visitadas, tipo de dispositivo e
-            localização aproximada) por meio de cookies e ferramentas de
-            terceiros descritas no{" "}
+            navegação (como páginas visitadas, tipo de dispositivo e localização
+            aproximada) por meio de cookies e ferramentas de terceiros descritas
+            no{" "}
             <a href="/aviso-de-cookies" className="underline">
               Aviso de Cookies
             </a>
@@ -54,10 +72,10 @@ export default function PoliticaDePrivacidadePage() {
             3. Publicidade e Google AdSense
           </h2>
           <p className="mt-2">
-            O site pode exibir anúncios por meio do Google AdSense. O Google
-            e seus parceiros podem usar cookies para veicular anúncios com
-            base em visitas anteriores suas a este e a outros sites. Você
-            pode desativar a personalização de anúncios nas{" "}
+            O site pode exibir anúncios por meio do Google AdSense. O Google e
+            seus parceiros podem usar cookies para veicular anúncios com base em
+            visitas anteriores suas a este e a outros sites. Você pode desativar
+            a personalização de anúncios nas{" "}
             <a
               href="https://adssettings.google.com/"
               className="underline"
@@ -76,9 +94,9 @@ export default function PoliticaDePrivacidadePage() {
           </h2>
           <p className="mt-2">
             O gerador de recibo de compra e venda processa os dados do
-            formulário (comprador, vendedor, dados do veículo) somente no
-            seu navegador, para montar o PDF. Nenhum desses dados é enviado
-            ou armazenado em nossos servidores.
+            formulário (comprador, vendedor, dados do veículo) somente no seu
+            navegador, para montar o PDF. Nenhum desses dados é enviado ou
+            armazenado em nossos servidores.
           </p>
         </section>
 
@@ -88,11 +106,14 @@ export default function PoliticaDePrivacidadePage() {
           </h2>
           <p className="mt-2">
             Conforme a LGPD, você tem direito a confirmar a existência de
-            tratamento, acessar, corrigir, anonimizar ou solicitar a
-            eliminação de dados pessoais, entre outros direitos previstos na
-            lei. Para exercer esses direitos ou tirar dúvidas, entre em
-            contato pelo e-mail{" "}
-            <a href="mailto:contato@carrosemsurpresa.com.br" className="underline">
+            tratamento, acessar, corrigir, anonimizar ou solicitar a eliminação
+            de dados pessoais, entre outros direitos previstos na lei. Para
+            exercer esses direitos ou tirar dúvidas, entre em contato pelo
+            e-mail{" "}
+            <a
+              href="mailto:contato@carrosemsurpresa.com.br"
+              className="underline"
+            >
               contato@carrosemsurpresa.com.br
             </a>
             .

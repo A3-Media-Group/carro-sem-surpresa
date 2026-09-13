@@ -3,6 +3,7 @@ import Link from "next/link";
 import { AdSlot } from "@/components/ads/AdSlot";
 
 const FOOTER_LINKS = [
+  { href: "/sobre", label: "Sobre e critérios editoriais" },
   { href: "/politica-de-privacidade", label: "Política de Privacidade" },
   { href: "/aviso-de-cookies", label: "Aviso de Cookies" },
   { href: "/guias", label: "Guias" },
@@ -26,8 +27,8 @@ export function Footer() {
               className="h-6 w-auto shrink-0 opacity-90"
             />
             <p className="max-w-md text-sm text-white/60">
-              © {year} Carro Sem Surpresa. Conteúdo informativo, não
-              substitui aconselhamento financeiro, contábil ou jurídico.
+              © {year} Carro Sem Surpresa. Conteúdo informativo, não substitui
+              aconselhamento financeiro, contábil ou jurídico.
             </p>
           </div>
           <ul className="flex flex-wrap gap-x-6 gap-y-3">

@@ -16,13 +16,38 @@ export function ArticleLayout({
   title,
   dek,
   children,
+  path,
+  date,
 }: {
   title: string;
   dek?: string;
   children: ReactNode;
+  path?: string;
+  date?: string;
 }) {
   return (
-    <main className="mx-auto max-w-6xl px-6 py-12">
+    <main className="mx-auto w-full max-w-6xl px-6 py-12">
+      {path && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Article",
+              headline: title,
+              description: dek,
+              inLanguage: "pt-BR",
+              mainEntityOfPage: `https://carrosemsurpresa.com.br${path}`,
+              author: {
+                "@type": "Organization",
+                name: "Carro Sem Surpresa",
+                url: "https://carrosemsurpresa.com.br/sobre",
+              },
+              ...(date ? { datePublished: date, dateModified: date } : {}),
+            }).replace(/</g, "\\u003c"),
+          }}
+        />
+      )}
       <div className="lg:grid lg:grid-cols-[1fr_300px] lg:items-start lg:gap-10">
         <div className="mx-auto w-full max-w-3xl lg:mx-0">
           <Link
@@ -36,13 +61,40 @@ export function ArticleLayout({
             {title}
           </h1>
           {dek && <p className="mt-3 text-lg text-neutral-600">{dek}</p>}
+          <p className="mt-5 text-xs text-neutral-600">
+            Por{" "}
+            <Link href="/sobre" className="underline">
+              Carro Sem Surpresa
+            </Link>
+            {date && (
+              <>
+                {" "}
+                · Publicado em{" "}
+                <time dateTime={date}>
+                  {date.split("-").reverse().join("/")}
+                </time>
+              </>
+            )}
+          </p>
 
           <AdSlot position="in-between" className="my-8" />
 
-          <div className="space-y-4">{children}</div>
+          <div className="article-content space-y-4">{children}</div>
         </div>
 
         <aside className="hidden lg:sticky lg:top-24 lg:block">
+          <div className="mb-6 rounded-xl border border-neutral-200 bg-white p-6">
+            <p className="section-kicker">DA LEITURA À PRÁTICA</p>
+            <h2 className="my-3 text-lg font-bold">
+              Use os números a seu favor.
+            </h2>
+            <p className="mb-5 text-sm text-neutral-600">
+              Simule custos, confira referências e organize sua próxima decisão.
+            </p>
+            <Link href="/ferramentas" className="quiet-link">
+              Explorar ferramentas →
+            </Link>
+          </div>
           <AdSlot position="sidebar" />
         </aside>
       </div>
