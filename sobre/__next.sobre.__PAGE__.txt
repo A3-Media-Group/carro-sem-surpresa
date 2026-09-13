@@ -1,0 +1,36 @@
+1:"$Sreact.fragment"
+2:I[22016,["/_next/static/chunks/40ccbe_8kbfn4.js"],""]
+3:I[97367,["/_next/static/chunks/3fntmmi971322.js"],"OutletBoundary"]
+4:"$Sreact.suspense"
+8:I[97367,["/_next/static/chunks/3fntmmi971322.js"],"ViewportBoundary"]
+9:I[97367,["/_next/static/chunks/3fntmmi971322.js"],"MetadataBoundary"]
+7:X
+1b:X
+1b:C
+0:{"buildId":"QMmopnLs4POLUYpuHQh0u","data":[{"rsc":["$","$1","c",{"children":[["$","main",null,{"className":"mx-auto max-w-3xl px-6 py-12","children":[["$","span",null,{"className":"section-kicker","children":"SOBRE O PROJETO"}],["$","h1",null,{"className":"mt-4 text-4xl font-bold","children":"Decisões melhores começam com informação clara."}],["$","div",null,{"className":"article-content mt-8 space-y-6","children":[["$","p",null,{"children":"O Carro Sem Surpresa reúne guias e ferramentas gratuitos para ajudar quem compra, usa ou vende um veículo no Brasil. Nosso foco é explicar custos, mostrar as premissas das contas e facilitar a comparação de cenários."}],["$","h2",null,{"className":"text-2xl font-bold","children":"Como usar o conteúdo"}],["$","p",null,{"children":"Os simuladores trabalham com os valores informados por você e com referências identificadas na interface. Não representam orçamento de oficina, proposta de seguro ou aprovação de financiamento. Custos e regras podem variar por veículo, perfil, local e data."}],["$","h2",null,{"className":"text-2xl font-bold","children":"Fontes e atualizações"}],["$","p",null,{"children":"Nos novos guias, apresentamos links para fontes como Senatran, Inmetro, ANP e Banco Central. Exemplos são separados de cotações reais. Confira a data de referência de tabelas e a regra aplicável no órgão responsável antes de tomar uma decisão."}],["$","h2",null,{"className":"text-2xl font-bold","children":"Privacidade das ferramentas"}],["$","p",null,{"children":["As contas e o checklist são executados no navegador, sem cadastro. A consulta FIPE utiliza um provedor externo, que recebe as solicitações de marca, modelo e ano. As marcações do checklist não são armazenadas para visitas futuras. Saiba mais na"," ",["$","$L2",null,{"href":"/politica-de-privacidade","children":"política de privacidade"}],"."]}],["$","h2",null,{"className":"text-2xl font-bold","children":"Limites e transparência"}],["$","p",null,{"children":"Conteúdo informativo não substitui inspeção mecânica, laudo ou orientação profissional sobre um caso concreto. Uma lista concluída não certifica um carro e uma simulação não assegura economia futura. A autoria institucional identifica o projeto, sem sugerir certificações profissionais não apresentadas."}],["$","p",null,{"children":"Encontrou uma divergência? Compare com a fonte indicada e use o valor confirmado pelo órgão ou prestador responsável. Os canais institucionais estão listados nos guias quando se aplicam à consulta."}],["$","$L2",null,{"className":"motor-button !no-underline","href":"/ferramentas","children":"Encontrar uma ferramenta →"}]]}]]}],null,["$","$L3",null,{"children":["$","$4",null,{"name":"Next.MetadataOutlet","children":"$@5"}]}]]}],"isPartial":"$@6","staleTime":"$7","varyParams":null},{"rsc":["$","$1","h",{"children":[null,["$","$L8",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$L9",null,{"children":["$","$4",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"Sobre o Carro Sem Surpresa e Critérios Editoriais — Carro Sem Surpresa"}],["$","meta","1",{"name":"description","content":"Conheça o propósito do site, as fontes, os limites dos simuladores e os critérios usados para apresentar informação sobre custos de veículos."}],["$","meta","2",{"name":"robots","content":"index, follow"}],["$","meta","3",{"name":"googlebot","content":"max-image-preview:large"}],["$","link","4",{"rel":"canonical","href":"https://carrosemsurpresa.com.br/sobre"}],["$","meta","5",{"name":"google-site-verification","content":"FHC_KudjQZbga3CdN602YY1G18m61ybzosUxqS3Sr_U"}],["$","meta","6",{"property":"og:title","content":"Sobre o Carro Sem Surpresa e Critérios Editoriais"}],["$","meta","7",{"property":"og:description","content":"Conheça o propósito do site, as fontes, os limites dos simuladores e os critérios usados para apresentar informação sobre custos de veículos."}],"$La","$Lb","$Lc","$Ld","$Le","$Lf","$L10","$L11","$L12","$L13","$L14","$L15","$L16"]}]}]}],"$L17"]}],"isPartial":"$@18","staleTime":"$7","varyParams":null},{"rsc":"$L19","isPartial":"$@1a","staleTime":"$7","varyParams":"$1b"}],"isUpgradeableISRFallback":false,"a":"$@1c","rootVaryParams":null,"needsRuntimeRequest":"$@1d"}
+1e:I[27201,["/_next/static/chunks/3fntmmi971322.js"],"IconMark"]
+1f:I[39756,["/_next/static/chunks/3fntmmi971322.js"],"default"]
+20:I[37457,["/_next/static/chunks/3fntmmi971322.js"],"default"]
+5:null
+a:["$","meta","8",{"property":"og:url","content":"https://carrosemsurpresa.com.br/sobre"}]
+b:["$","meta","9",{"property":"og:image","content":"https://carrosemsurpresa.com.br/social-card.png"}]
+c:["$","meta","10",{"property":"og:image:width","content":"1200"}]
+d:["$","meta","11",{"property":"og:image:height","content":"630"}]
+e:["$","meta","12",{"property":"og:type","content":"website"}]
+f:["$","meta","13",{"name":"twitter:card","content":"summary_large_image"}]
+10:["$","meta","14",{"name":"twitter:title","content":"Sobre o Carro Sem Surpresa e Critérios Editoriais"}]
+11:["$","meta","15",{"name":"twitter:description","content":"Conheça o propósito do site, as fontes, os limites dos simuladores e os critérios usados para apresentar informação sobre custos de veículos."}]
+12:["$","meta","16",{"name":"twitter:image","content":"https://carrosemsurpresa.com.br/social-card.png"}]
+13:["$","link","17",{"rel":"icon","href":"/favicon.ico?favicon.25brep1-fr0t0.ico","sizes":"64x64","type":"image/x-icon"}]
+14:["$","link","18",{"rel":"icon","href":"/icon.png?icon.1ddcrpgisx_sh.png","sizes":"512x512","type":"image/png"}]
+15:["$","link","19",{"rel":"apple-touch-icon","href":"/apple-icon.png?apple-icon.2mpp6agon4ddp.png","sizes":"180x180","type":"image/png"}]
+16:["$","$L1e","20",{}]
+17:["$","meta",null,{"name":"next-size-adjust","content":""}]
+19:["$","$1","c",{"children":[null,["$","$L1f",null,{"parallelRouterKey":"children","template":["$","$L20",null,{}]}]]}]
+1d:true
+7:300
+7:C
+1c:0
+18:"$undefined"
+1a:"$undefined"
+6:"$undefined"
