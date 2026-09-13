@@ -6,19 +6,19 @@ import { MobileNav } from "./MobileNav";
 export function Header() {
   return (
     <header className="sticky top-0 z-50 bg-graphite text-white">
-      <div className="relative mx-auto flex h-16 max-w-6xl items-center justify-between px-6">
+      <div className="relative mx-auto flex h-20 max-w-6xl items-center justify-between px-6">
         <Link
           href="/"
           prefetch={false}
           className="flex items-center gap-2 text-lg font-bold tracking-tight"
         >
           <Image
-            src="/logo-icon.png"
+            src="/brand-mark.svg"
             alt=""
-            width={562}
-            height={241}
+            width={48}
+            height={48}
             priority
-            className="h-9 w-auto"
+            className="h-10 w-10"
           />
           <span>
             Carro <span className="text-brand-orange">Sem Surpresa</span>
@@ -29,7 +29,10 @@ export function Header() {
             então o prefetch automático baixaria em segundo plano o JS de
             todas as ferramentas em toda navegação — inclusive o jsPDF do
             recibo (~450KB), sem necessidade. */}
-        <nav aria-label="Menu principal" className="hidden items-center gap-1 sm:flex">
+        <nav
+          aria-label="Menu principal"
+          className="hidden items-center gap-1 md:flex"
+        >
           <ToolsDropdown />
           <Link
             href="/calculadoras"

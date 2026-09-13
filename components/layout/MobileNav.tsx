@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import { TOOLS } from "@/lib/tools";
@@ -8,10 +8,24 @@ import { TOOLS } from "@/lib/tools";
 export function MobileNav() {
   const [open, setOpen] = useState(false);
 
+  const button = useRef<HTMLButtonElement>(null);
+  useEffect(() => {
+    function escape(event: KeyboardEvent) {
+      if (event.key === "Escape" && open) {
+        setOpen(false);
+        button.current?.focus();
+      }
+    }
+    document.addEventListener("keydown", escape);
+    return () => document.removeEventListener("keydown", escape);
+  }, [open]);
+
   return (
-    <div className="sm:hidden">
+    <div className="md:hidden">
       <button
         type="button"
+        ref={button}
+        aria-controls="mobile-navigation"
         onClick={() => setOpen((v) => !v)}
         aria-expanded={open}
         aria-label={open ? "Fechar menu" : "Abrir menu"}
@@ -22,8 +36,9 @@ export function MobileNav() {
 
       {open && (
         <nav
+          id="mobile-navigation"
           aria-label="Menu principal"
-          className="absolute inset-x-0 top-16 z-40 max-h-[calc(100vh-4rem)] overflow-y-auto border-t border-white/10 bg-graphite px-6 py-4 shadow-lg"
+          className="absolute inset-x-0 top-20 z-40 max-h-[calc(100dvh-5rem)] overflow-y-auto border-t border-white/10 bg-graphite px-6 py-4 shadow-lg"
         >
           <ul className="space-y-1">
             {TOOLS.map((tool) => (

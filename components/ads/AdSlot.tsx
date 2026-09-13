@@ -15,11 +15,13 @@ interface AdSlotProps {
 /**
  * Placeholder visual de anúncio, com aviso "Publicidade" bem visível.
  * Nenhum código real do Google AdSense entra aqui ainda — isso só é
- * adicionado depois que a conta AdSense for aprovada. Trocar o miolo
- * deste componente pelo `<ins class="adsbygoogle">` real é a única
- * mudança necessária quando chegar a hora.
+ * adicionado depois de configurar a conta, os slots e o consentimento
+ * aplicável. Os placeholders são opcionais para revisão de layout;
+ * não constituem integração com o AdSense.
  */
 export function AdSlot({ position, className = "" }: AdSlotProps) {
+  // Enable preview placeholders explicitly; never show empty ad boxes to readers.
+  if (process.env.NEXT_PUBLIC_SHOW_AD_PLACEHOLDERS !== "true") return null;
   return (
     <div
       role="complementary"

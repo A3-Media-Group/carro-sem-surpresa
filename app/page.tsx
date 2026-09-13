@@ -1,376 +1,249 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import {
-  ArrowRight,
-  BadgeCheck,
-  BookOpen,
+  ArrowUpRight,
   Calculator,
-  LayoutGrid,
-  Lock,
+  Fuel,
+  Route,
   ShieldCheck,
-  Sparkles,
-  Stethoscope,
+  Wrench,
+  BookOpen,
+  Check,
 } from "lucide-react";
 import { HeroCalculator } from "@/components/home/HeroCalculator";
-import { CALCULADORAS, TOOLS } from "@/lib/tools";
-import ipvaData from "@/lib/data/ipva-por-estado.json";
+import { TOOLS } from "@/lib/tools";
+import { GUIDES } from "@/lib/guides";
 
-const COMO_FUNCIONA = [
+export const metadata: Metadata = { alternates: { canonical: "/" } };
+const journeys = [
   {
-    numero: "1",
-    titulo: "Escolha uma ferramenta",
-    descricao:
-      "Calculadora, consulta de tabela, gerador de recibo ou diagnóstico por sintoma — todas gratuitas, sem cadastro.",
-  },
-  {
-    numero: "2",
-    titulo: "Preencha com os dados do seu carro",
-    descricao:
-      "Valor, km rodado, estado, sintoma — só o que a conta ou a busca realmente precisam, nada além disso.",
-  },
-  {
-    numero: "3",
-    titulo: "Veja o resultado na hora",
-    descricao:
-      "Tudo roda no seu navegador. Nenhum dado seu é enviado pra nenhum servidor nosso.",
-  },
-] as const;
-
-const PILARES = [
-  {
-    href: "/calculadoras",
-    icon: Calculator,
-    titulo: "Calculadoras",
-    contagem: `${CALCULADORAS.length} calculadoras`,
-    descricao:
-      "As que recebem os números do seu carro e fazem a conta: posse, financiamento, consórcio, manutenção.",
-    exemplos: [
-      { href: "/calculadora-custo-de-posse", label: "Custo de Posse" },
-      { href: "/simulador-financiamento-veiculo", label: "Financiamento" },
-      { href: "/calculadora-consumo-medio", label: "Consumo Médio" },
-    ],
-  },
-  {
-    href: "/ferramentas",
-    icon: LayoutGrid,
-    titulo: "Ferramentas",
-    contagem: `${TOOLS.length} ferramentas`,
-    descricao:
-      "O diretório completo: as calculadoras e mais as consultas de tabela, o gerador de recibo e o diagnóstico.",
-    exemplos: [
-      { href: "/tabela-ipva-por-estado", label: "IPVA por Estado" },
-      { href: "/consulta-tabela-fipe", label: "Consulta FIPE" },
-      { href: "/diagnostico-de-problemas-do-carro", label: "Diagnóstico" },
-    ],
-  },
-  {
-    href: "/guias",
-    icon: BookOpen,
-    titulo: "Guias",
-    contagem: "13 guias completos",
-    descricao:
-      "Pra entender o porquê por trás do número — no tom que ninguém te conta na concessionária.",
-    exemplos: [
-      { href: "/guias/checklist-comprar-carro-usado", label: "Comprar Usado" },
-      { href: "/guias/carro-0km-ou-seminovo", label: "0km ou Seminovo" },
-      { href: "/guias/faq-custo-de-carro", label: "FAQ" },
-    ],
-  },
-] as const;
-
-const TRUST_POINTS = [
-  {
+    title: "Vou comprar um carro",
+    label: "ANTES DA CHAVE",
     icon: ShieldCheck,
-    title: "Sem cadastro, sem pegadinha",
-    description:
-      "Nenhuma ferramenta pede e-mail, cartão ou login. É abrir e usar.",
+    text: "Confira o usado, compare o preço e descubra se a conta cabe no bolso.",
+    href: "/checklist-carro-usado",
+    links: [
+      { href: "/consulta-tabela-fipe", label: "Consultar FIPE" },
+      {
+        href: "/simulador-financiamento-veiculo",
+        label: "Simular financiamento",
+      },
+    ],
   },
   {
-    icon: Lock,
-    title: "Seus dados ficam com você",
-    description:
-      "As calculadoras e o gerador de recibo rodam no seu navegador — nada é enviado pra nenhum servidor.",
+    title: "Quero gastar menos",
+    label: "NO DIA A DIA",
+    icon: Fuel,
+    text: "Compare combustíveis e entenda para onde vai o dinheiro a cada quilômetro.",
+    href: "/calculadora-alcool-ou-gasolina",
+    links: [
+      { href: "/calculadora-consumo-medio", label: "Medir consumo" },
+      { href: "/calculadora-custo-viagem", label: "Planejar uma viagem" },
+    ],
   },
   {
-    icon: BadgeCheck,
-    title: "Fontes verificadas",
-    description:
-      "Dados de IPVA pesquisados estado a estado, com data de referência e aviso claro quando é estimativa.",
+    title: "Preciso cuidar do carro",
+    label: "SEM DEIXAR PARA DEPOIS",
+    icon: Wrench,
+    text: "Organize a manutenção e entenda os sintomas antes de conversar com a oficina.",
+    href: "/manutencao-preventiva-vs-corretiva",
+    links: [
+      {
+        href: "/diagnostico-de-problemas-do-carro",
+        label: "Entender um sintoma",
+      },
+      {
+        href: "/guias/consultar-recall-e-restricoes",
+        label: "Verificar recall",
+      },
+    ],
   },
-] as const;
-
-const GUIAS_DESTAQUE = [
-  {
-    href: "/guias/como-calcular-se-carro-cabe-no-orcamento",
-    titulo: "Como Calcular se um Carro Cabe no Seu Orçamento",
-    resumo: "A regra dos 20% da renda, passo a passo.",
-  },
-  {
-    href: "/guias/reduzir-custo-por-km-rodado",
-    titulo: "5 Formas de Reduzir o Custo por Quilômetro Rodado",
-    resumo: "O gasto escondido do dia a dia, resolvido com hábito.",
-  },
-  {
-    href: "/guias/faq-custo-de-carro",
-    titulo: "FAQ: Perguntas Frequentes Sobre o Custo de um Carro",
-    resumo: "Depreciação, elétrico e isenção de IPVA, direto ao ponto.",
-  },
-] as const;
-
-const totalEstados = ipvaData.estados.length;
-
+];
 export default function Home() {
   return (
-    <main className="flex flex-1 flex-col">
-      {/* HERO */}
-      <section className="relative overflow-hidden bg-graphite text-white">
-        <div
-          aria-hidden
-          className="pointer-events-none absolute inset-0"
-          style={{
-            background:
-              "radial-gradient(circle at 82% 15%, rgba(249,115,22,0.35), transparent 55%), radial-gradient(circle at 10% 90%, rgba(249,115,22,0.12), transparent 45%)",
-          }}
-        />
-        <div className="relative mx-auto grid max-w-6xl gap-12 px-6 py-20 lg:grid-cols-[1fr_420px] lg:items-center lg:py-24">
-          <div>
-            <span className="inline-flex items-center gap-1.5 rounded-full bg-white/10 px-3 py-1 text-xs font-medium text-white/80">
-              <Sparkles size={14} className="text-brand-orange" />
-              100% grátis, sem cadastro
+    <main className="home-page">
+      <section className="motor-hero">
+        <div className="motor-container hero-grid">
+          <div className="hero-copy">
+            <span className="section-kicker">
+              <span className="signal-dot" /> MAIS CONTROLE. MENOS SURPRESAS.
             </span>
-
-            <h1 className="mt-6 max-w-xl text-4xl font-bold tracking-tight sm:text-5xl">
-              Carro <span className="text-brand-orange">Sem Surpresa</span>
+            <h1>
+              A liberdade de dirigir.
+              <br />
+              <em>
+                A tranquilidade
+                <br />
+                de saber o custo.
+              </em>
             </h1>
-            <p className="mt-5 max-w-lg text-lg text-white/70">
-              Ajudamos você a nunca mais ser pego de surpresa pelos custos
-              escondidos de comprar, manter ou vender um carro no Brasil.
+            <p>
+              Da primeira pesquisa à próxima revisão: ferramentas e guias para
+              tomar boas decisões com o seu carro.
             </p>
-
-            <div className="mt-8 flex flex-wrap items-center gap-3">
+            <div className="hero-buttons">
               <Link
-                href="/diagnostico-de-problemas-do-carro"
+                href="/ferramentas"
                 prefetch={false}
-                className="inline-flex h-12 items-center gap-2 rounded-md bg-brand-orange px-7 text-sm font-semibold text-graphite hover:bg-brand-orange-dark hover:text-white"
+                className="motor-button"
               >
-                <Stethoscope size={16} />
-                Diagnosticar um problema
+                Encontre sua ferramenta <ArrowUpRight size={18} />
               </Link>
-              <Link
-                href="/guias"
-                prefetch={false}
-                className="inline-flex h-12 items-center rounded-md border border-white/25 px-7 text-sm font-semibold text-white hover:bg-white/10"
-              >
-                Ver guias completos
+              <Link href="/guias" prefetch={false} className="quiet-link">
+                Explore os guias <ArrowUpRight size={17} />
               </Link>
             </div>
-
-            <dl className="mt-14 grid max-w-lg grid-cols-2 gap-6 border-t border-white/10 pt-8 sm:grid-cols-4">
-              {[
-                { value: String(TOOLS.length), label: "ferramentas grátis" },
-                { value: String(totalEstados), label: "estados no IPVA" },
-                { value: "100%", label: "no seu navegador" },
-                { value: "0", label: "cadastros exigidos" },
-              ].map((stat) => (
-                <div key={stat.label}>
-                  <dt className="text-2xl font-bold text-brand-orange">
-                    {stat.value}
-                  </dt>
-                  <dd className="mt-1 text-xs text-white/60">{stat.label}</dd>
-                </div>
-              ))}
-            </dl>
-          </div>
-
-          <HeroCalculator />
-        </div>
-      </section>
-
-      {/* COMO FUNCIONA */}
-      <section className="mx-auto w-full max-w-5xl px-6 py-16 sm:py-20">
-        <h2 className="text-2xl font-bold tracking-tight text-neutral-900 sm:text-3xl">
-          Como funciona
-        </h2>
-        <div className="mt-10 grid gap-8 sm:grid-cols-3">
-          {COMO_FUNCIONA.map((passo) => (
-            <div key={passo.numero}>
-              <span className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-graphite text-sm font-bold text-brand-orange">
-                {passo.numero}
+            <div className="hero-proof">
+              <span>
+                <Check size={14} /> Sem cadastro
               </span>
-              <h3 className="mt-3 font-semibold text-neutral-900">
-                {passo.titulo}
-              </h3>
-              <p className="mt-1.5 text-sm text-neutral-600">
-                {passo.descricao}
-              </p>
+              <span>
+                <Check size={14} /> Cálculos gratuitos
+              </span>
+              <span>
+                <Check size={14} /> Dados editáveis
+              </span>
             </div>
-          ))}
-        </div>
-      </section>
-
-      {/* PILARES */}
-      <section id="ferramentas" className="bg-neutral-50">
-        <div className="mx-auto max-w-5xl px-6 py-16 sm:py-20">
-          <div className="max-w-2xl">
-            <h2 className="text-2xl font-bold tracking-tight text-neutral-900 sm:text-3xl">
-              Por onde começar
-            </h2>
-            <p className="mt-2 text-neutral-600">
-              Três jeitos de usar o site, dependendo do que você precisa
-              agora.
+          </div>
+          <div className="dashboard-preview">
+            <div className="dashboard-top">
+              <span>
+                <Calculator size={15} /> SEU CARRO, EM NÚMEROS
+              </span>
+              <span className="live-label">SIMULAÇÃO</span>
+            </div>
+            <HeroCalculator />
+            <p className="dashboard-caption">
+              O preço da etiqueta é só o começo.
             </p>
           </div>
-
-          <div className="mt-10 grid gap-5 lg:grid-cols-3">
-            {PILARES.map((pilar) => (
-              <div
-                key={pilar.href}
-                className="flex flex-col rounded-2xl border border-neutral-200 bg-white p-6"
-              >
-                <span className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-orange-50 text-brand-orange-dark">
-                  <pilar.icon size={22} />
-                </span>
-                <h3 className="mt-4 text-lg font-semibold text-neutral-900">
-                  {pilar.titulo}
-                </h3>
-                <p className="mt-0.5 text-xs font-medium text-brand-orange-dark">
-                  {pilar.contagem}
-                </p>
-                <p className="mt-2 text-sm text-neutral-600">
-                  {pilar.descricao}
-                </p>
-
-                <div className="mt-4 flex flex-wrap gap-1.5">
-                  {pilar.exemplos.map((exemplo) => (
-                    <Link
-                      key={exemplo.href}
-                      href={exemplo.href}
-                      prefetch={false}
-                      className="rounded-full border border-neutral-200 px-2.5 py-1 text-xs text-neutral-600 hover:border-brand-orange hover:text-brand-orange-dark"
-                    >
-                      {exemplo.label}
-                    </Link>
-                  ))}
-                </div>
-
-                <Link
-                  href={pilar.href}
-                  prefetch={false}
-                  className="group mt-5 inline-flex items-center gap-1 text-sm font-semibold text-brand-orange-dark"
-                >
-                  Ver {pilar.titulo.toLowerCase()}
-                  <ArrowRight
-                    size={16}
-                    className="transition-transform group-hover:translate-x-0.5"
-                  />
-                </Link>
-              </div>
-            ))}
-          </div>
         </div>
+        <div className="road-line" aria-hidden="true" />
       </section>
-
-      {/* CONFIANÇA */}
-      <section className="mx-auto w-full max-w-5xl px-6 py-16 sm:py-20">
-        <div className="grid gap-5 sm:grid-cols-3">
-          {TRUST_POINTS.map((point) => (
-            <div
-              key={point.title}
-              className="rounded-2xl border border-neutral-200 p-6"
-            >
-              <span className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-orange-50 text-brand-orange-dark">
-                <point.icon size={20} />
-              </span>
-              <h3 className="mt-3 font-semibold text-neutral-900">
-                {point.title}
-              </h3>
-              <p className="mt-1.5 text-sm text-neutral-600">
-                {point.description}
-              </p>
-            </div>
-          ))}
+      <div className="quick-lane">
+        <div className="motor-container">
+          <span>ACESSO RÁPIDO</span>
+          <Link href="/consulta-tabela-fipe">
+            Tabela FIPE <ArrowUpRight size={14} />
+          </Link>
+          <Link href="/calculadora-alcool-ou-gasolina">
+            Etanol ou gasolina <ArrowUpRight size={14} />
+          </Link>
+          <Link href="/calculadora-custo-viagem">
+            Custo de viagem <ArrowUpRight size={14} />
+          </Link>
+          <Link href="/checklist-carro-usado">
+            Checklist do usado <ArrowUpRight size={14} />
+          </Link>
         </div>
-      </section>
-
-      {/* GUIAS EM DESTAQUE */}
-      <section className="bg-neutral-50">
-        <div className="mx-auto max-w-5xl px-6 py-16 sm:py-20">
-          <div className="flex flex-wrap items-end justify-between gap-4">
-            <div className="max-w-xl">
-              <h2 className="text-2xl font-bold tracking-tight text-neutral-900 sm:text-3xl">
-                Aprenda a fundo
-              </h2>
-              <p className="mt-2 text-neutral-600">
-                Guias completos, no tom que ninguém te conta na concessionária.
-              </p>
-            </div>
-            <Link
-              href="/guias"
-              prefetch={false}
-              className="inline-flex items-center gap-1 text-sm font-semibold text-brand-orange-dark hover:underline"
-            >
-              Ver todos os guias
-              <ArrowRight size={16} />
-            </Link>
+      </div>
+      <section className="motor-container home-section">
+        <div className="section-heading">
+          <div>
+            <span className="section-kicker">QUAL É O SEU PRÓXIMO PASSO?</span>
+            <h2>Um caminho para cada momento.</h2>
           </div>
-
-          <div className="mt-8 grid gap-5 sm:grid-cols-3">
-            {GUIAS_DESTAQUE.map((guia) => (
-              <Link
-                key={guia.href}
-                href={guia.href}
-                prefetch={false}
-                className="group flex flex-col rounded-2xl border border-neutral-200 bg-white p-6 transition hover:border-brand-orange/50 hover:shadow-md"
-              >
-                <span className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-orange-50 text-brand-orange-dark">
-                  <BookOpen size={18} />
-                </span>
-                <h3 className="mt-3 font-semibold text-neutral-900">
-                  {guia.titulo}
-                </h3>
-                <p className="mt-2 flex-1 text-sm text-neutral-600">
-                  {guia.resumo}
-                </p>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* CTA FINAL */}
-      <section className="relative overflow-hidden bg-graphite">
-        <div
-          aria-hidden
-          className="pointer-events-none absolute inset-0"
-          style={{
-            background:
-              "radial-gradient(circle at 50% 0%, rgba(249,115,22,0.25), transparent 60%)",
-          }}
-        />
-        <div className="relative mx-auto max-w-3xl px-6 py-16 text-center sm:py-20">
-          <h2 className="text-2xl font-bold tracking-tight text-white sm:text-3xl">
-            Não sabe por onde começar?
-          </h2>
-          <p className="mx-auto mt-3 max-w-md text-white/70">
-            Se o carro tem um problema, comece pelo diagnóstico. Se é sobre
-            dinheiro, comece pelo custo real de posse.
+          <p>
+            Comece pela sua dúvida.
+            <br />
+            Encontre a próxima decisão.
           </p>
-          <div className="mt-7 flex flex-wrap items-center justify-center gap-3">
-            <Link
-              href="/diagnostico-de-problemas-do-carro"
-              prefetch={false}
-              className="inline-flex h-12 items-center gap-2 rounded-md bg-brand-orange px-7 text-sm font-semibold text-graphite hover:bg-brand-orange-dark hover:text-white"
-            >
-              Diagnosticar um problema
-              <ArrowRight size={16} />
-            </Link>
-            <Link
-              href="/calculadora-custo-de-posse"
-              prefetch={false}
-              className="inline-flex h-12 items-center rounded-md border border-white/25 px-7 text-sm font-semibold text-white hover:bg-white/10"
-            >
-              Calcular custo de posse
+        </div>
+        <div className="journey-grid">
+          {journeys.map((j) => (
+            <article className="journey-card" key={j.title}>
+              <div className="journey-top">
+                <j.icon size={24} />
+                <span>{j.label}</span>
+              </div>
+              <h3>
+                <Link href={j.href}>
+                  {j.title} <ArrowUpRight size={19} />
+                </Link>
+              </h3>
+              <p>{j.text}</p>
+              <div className="journey-links">
+                {j.links.map((l) => (
+                  <Link key={l.href} href={l.href}>
+                    {l.label}
+                    <ArrowUpRight size={14} />
+                  </Link>
+                ))}
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+      <section className="motor-container">
+        <div className="trip-promo">
+          <div>
+            <span className="section-kicker">
+              NOVA FERRAMENTA · PLANEJE A ESTRADA
+            </span>
+            <h2>
+              A viagem começa
+              <br />
+              com uma boa conta.
+            </h2>
+            <p>
+              Combustível, pedágios, estacionamento e divisão entre passageiros.
+              Veja a estimativa antes de sair.
+            </p>
+            <Link className="motor-button" href="/calculadora-custo-viagem">
+              Calcular minha viagem <ArrowUpRight size={18} />
             </Link>
           </div>
+          <div className="route-art" aria-hidden="true">
+            <Route size={150} strokeWidth={1} />
+            <span>
+              SAÍDA <i /> DESTINO
+            </span>
+          </div>
+        </div>
+      </section>
+      <section className="motor-container home-section">
+        <div className="section-heading">
+          <div>
+            <span className="section-kicker">
+              CONHECIMENTO QUE VAI COM VOCÊ
+            </span>
+            <h2>Antes de decidir, entenda.</h2>
+          </div>
+          <Link className="quiet-link" href="/guias">
+            Todos os {GUIDES.length} guias <ArrowUpRight size={17} />
+          </Link>
+        </div>
+        <div className="reading-grid">
+          {GUIDES.slice(-4).map((g, i) => (
+            <Link href={g.href} className="reading-card" key={g.href}>
+              <div className={`reading-cover cover-${i}`}>
+                <BookOpen size={44} strokeWidth={1} />
+                <span>GUIA PRÁTICO / 0{i + 1}</span>
+              </div>
+              <div className="reading-body">
+                <h3>{g.titulo}</h3>
+                <p>{g.resumo}</p>
+                <span className="quiet-link">
+                  Ler o guia <ArrowUpRight size={16} />
+                </span>
+              </div>
+            </Link>
+          ))}
+        </div>
+      </section>
+      <section className="trust-band">
+        <div className="motor-container">
+          <div>
+            <ShieldCheck size={26} />
+            <h2>Clareza em cada etapa.</h2>
+          </div>
+          <p>
+            {TOOLS.length} ferramentas gratuitas. Premissas visíveis e conteúdo
+            com referências para você conferir.
+          </p>
+          <Link href="/sobre" className="quiet-link">
+            Conheça nossos critérios <ArrowUpRight size={17} />
+          </Link>
         </div>
       </section>
     </main>

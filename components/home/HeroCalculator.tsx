@@ -14,10 +14,12 @@ import ipvaData from "@/lib/data/ipva-por-estado.json";
 // IPVA por Estado — usada só como estimativa rápida aqui na prévia.
 // O cálculo completo deixa você escolher o estado exato.
 const aliquotaMediaNacional =
-  ipvaData.estados.reduce((soma, estado) => soma + estado.aliquotaCarroPasseio, 0) /
-  ipvaData.estados.length;
+  ipvaData.estados.reduce(
+    (soma, estado) => soma + estado.aliquotaCarroPasseio,
+    0,
+  ) / ipvaData.estados.length;
 
-// Consumo médio nacional aproximado (km/L), usado só nesta prévia — a
+// Consumo ilustrativo (km/L), usado só nesta prévia — a
 // calculadora completa usa o consumo real do seu carro.
 const CONSUMO_MEDIO_ESTIMADO = 12;
 
@@ -44,7 +46,7 @@ export function HeroCalculator() {
         insuranceRateOverValue: defaultInsuranceRateOverFipe * 100,
         parkingTollsPerMonth: 0,
       }),
-    [vehicleValue, kmPerMonth]
+    [vehicleValue, kmPerMonth],
   );
 
   return (
@@ -54,7 +56,7 @@ export function HeroCalculator() {
         Prévia rápida
       </div>
       <p className="mt-1 text-sm text-neutral-500">
-        Custo real de posse estimado — mude os números e veja na hora.
+        Custo de posse estimado — ajuste os números para explorar um cenário.
       </p>
 
       <div className="mt-4 grid grid-cols-2 gap-3">
@@ -81,6 +83,10 @@ export function HeroCalculator() {
         </p>
       </div>
 
+      <p className="mt-3 text-xs leading-relaxed text-neutral-600">
+        Exemplo com consumo de 12 km/L, IPVA médio da tabela e premissas padrão.
+        Ajuste as hipóteses no cálculo completo.
+      </p>
       <Link
         href="/calculadora-custo-de-posse"
         prefetch={false}

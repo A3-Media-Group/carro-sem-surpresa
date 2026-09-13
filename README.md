@@ -21,6 +21,22 @@ Abra [http://localhost:3000](http://localhost:3000).
 npm run build
 ```
 
+Validação: `npm run lint`, `npm test` (Node 22.18+ ou 24) e, após o build,
+`node scripts/check-export.mjs`. Pull requests executam essas verificações.
+
+O diretório `out/` é o site pronto para publicar. Um push na `main` aciona
+o workflow existente que atualiza `hostinger-deploy`; confirme no hPanel
+se a integração usa essa branch. O código-fonte não deve substituir o
+conteúdo estático na hospedagem.
+
+Os espaços publicitários vazios ficam ocultos por padrão. Para revisar
+placeholders, defina `NEXT_PUBLIC_SHOW_AD_PLACEHOLDERS=true` antes do build.
+Isso não ativa anúncios reais nem configura consentimento.
+
+As listas de ferramentas e guias ficam em `lib/tools.ts` e `lib/guides.ts`.
+Os novos guias com fontes estão em `lib/new-guides.ts`. A pesquisa e os
+limites da auditoria estão em `docs/redesign-e-conteudo.md`.
+
 O projeto está configurado com `output: "export"` em `next.config.ts`
 (export estático — `next build` gera a pasta `out/`), pensado para rodar
 em hospedagem compartilhada sem suporte a Node.js. Se a hospedagem final

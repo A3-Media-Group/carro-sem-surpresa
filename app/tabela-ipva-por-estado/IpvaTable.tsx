@@ -14,7 +14,7 @@ function normalize(text: string): string {
 }
 
 const estadosOrdenados = [...ipvaData.estados].sort((a, b) =>
-  a.nome.localeCompare(b.nome, "pt-BR")
+  a.nome.localeCompare(b.nome, "pt-BR"),
 );
 
 export function IpvaTable() {
@@ -26,7 +26,7 @@ export function IpvaTable() {
     return estadosOrdenados.filter(
       (estado) =>
         normalize(estado.nome).includes(termo) ||
-        normalize(estado.uf).includes(termo)
+        normalize(estado.uf).includes(termo),
     );
   }, [search]);
 
@@ -34,9 +34,12 @@ export function IpvaTable() {
 
   return (
     <main className="mx-auto max-w-4xl px-6 py-12">
-      <PageHeading icon={Landmark} title="Tabela de Isenção de IPVA por Estado">
-        Alíquota de IPVA para carro de passeio e a regra de isenção para
-        carros antigos, estado por estado.
+      <PageHeading
+        icon={Landmark}
+        title="IPVA por Estado: Alíquotas e Imunidade Nacional"
+      >
+        Alíquota de IPVA para carro de passeio e a regra de isenção para carros
+        antigos, estado por estado.
       </PageHeading>
 
       <div className="mt-6 space-y-2 rounded-lg bg-neutral-50 p-4 text-sm text-neutral-600">
@@ -45,11 +48,22 @@ export function IpvaTable() {
           {isencaoNacional.regra} {isencaoNacional.excecoes}
         </p>
         <p>
-          Dados de referência: {formatDateBR(ipvaData.referencia.dataAtualizacao)}.{" "}
+          Dados de referência:{" "}
+          {formatDateBR(ipvaData.referencia.dataAtualizacao)}.{" "}
           {ipvaData.referencia.aviso}
         </p>
       </div>
 
+      <p className="mt-4 text-sm text-neutral-600">
+        A coluna de idade mostra a referência nacional, não o menor prazo de
+        cada estado.{" "}
+        <a
+          className="underline"
+          href="https://www12.senado.leg.br/radio/1/noticia/2025/12/09/isencao-do-ipva-para-carros-antigos-sera-promulgada-nesta-terca-feira"
+        >
+          Confira o esclarecimento do Senado sobre as isenções estaduais.
+        </a>
+      </p>
       <label className="mt-8 block">
         <span className="sr-only">Buscar por estado ou sigla</span>
         <input
@@ -70,7 +84,7 @@ export function IpvaTable() {
               <th className="px-4 py-3 font-medium">
                 Alíquota (carro de passeio)
               </th>
-              <th className="px-4 py-3 font-medium">Isenção</th>
+              <th className="px-4 py-3 font-medium">Referência nacional</th>
             </tr>
           </thead>
           <tbody className="divide-y divide-neutral-100">
@@ -92,7 +106,8 @@ export function IpvaTable() {
                   </div>
                 </td>
                 <td className="px-4 py-3 text-neutral-500">
-                  {estado.anosIsencao} anos ou mais
+                  {estado.anosImunidadeNacional} anos ou mais; pode haver
+                  benefício estadual anterior
                 </td>
               </tr>
             ))}
@@ -111,9 +126,9 @@ export function IpvaTable() {
       </div>
 
       <p className="mt-6 text-xs text-neutral-500">
-        Valores estimados para fins informativos. A legislação de IPVA muda
-        com frequência — confirme sempre a alíquota vigente no site oficial
-        do Detran/Sefaz do seu estado antes de tomar decisões.
+        Valores estimados para fins informativos. A legislação de IPVA muda com
+        frequência — confirme sempre a alíquota vigente no site oficial do
+        Detran/Sefaz do seu estado antes de tomar decisões.
       </p>
     </main>
   );

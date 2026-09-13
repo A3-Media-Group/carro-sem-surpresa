@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ArticleLayout } from "@/components/guias/ArticleLayout";
 
-export const metadata: Metadata = {
+const pageMetadata: Metadata = {
   title: "FAQ: Perguntas Frequentes Sobre o Custo de um Carro",
   description:
     "Depreciação no primeiro ano, manutenção de carro elétrico e isenção de IPVA para carros antigos — respondido direto ao ponto.",
@@ -17,7 +17,7 @@ const faqs: FaqItem[] = [
   {
     pergunta: "Qual a depreciação média de um carro zero km no 1º ano?",
     resposta:
-      "Na média do mercado brasileiro, um carro zero km perde entre 10% e 20% do valor pago logo no primeiro ano — é o chamado \"imposto de sair da concessionária\". O percentual exato varia por marca, modelo e demanda: carros muito procurados (com fila de espera ou pouca oferta) desvalorizam menos, enquanto modelos com saída lenta ou troca de geração recente podem desvalorizar mais. Depois do primeiro ano, a curva de depreciação costuma ficar mais suave, na faixa de 8% a 12% ao ano nos anos seguintes. Esse é exatamente o gasto que ninguém te conta na hora da venda: mesmo sem rodar um km, o carro já vale menos. É por isso que, na nossa Calculadora do Custo Real de Posse, a depreciação entra como uma fatia do custo mensal — não é \"gasto que você paga\" de um boleto, mas é dinheiro que sai do seu patrimônio do mesmo jeito.",
+      'Na média do mercado brasileiro, um carro zero km perde entre 10% e 20% do valor pago logo no primeiro ano — é o chamado "imposto de sair da concessionária". O percentual exato varia por marca, modelo e demanda: carros muito procurados (com fila de espera ou pouca oferta) desvalorizam menos, enquanto modelos com saída lenta ou troca de geração recente podem desvalorizar mais. Depois do primeiro ano, a curva de depreciação costuma ficar mais suave, na faixa de 8% a 12% ao ano nos anos seguintes. Esse é exatamente o gasto que ninguém te conta na hora da venda: mesmo sem rodar um km, o carro já vale menos. É por isso que, na nossa Calculadora do Custo Real de Posse, a depreciação entra como uma fatia do custo mensal — não é "gasto que você paga" de um boleto, mas é dinheiro que sai do seu patrimônio do mesmo jeito.',
   },
   {
     pergunta: "Vale a pena comprar carro elétrico considerando a manutenção?",
@@ -27,7 +27,7 @@ const faqs: FaqItem[] = [
   {
     pergunta: "Como funciona a isenção de IPVA para carros antigos?",
     resposta:
-      "Desde a Emenda Constitucional 137/2025, existe uma regra única e nacional: carros de passeio, picapes e veículos mistos com 20 anos ou mais de fabricação são imunes ao IPVA em qualquer estado do Brasil, a partir de 2026. Antes dessa mudança, cada estado tinha seu próprio prazo de isenção, variando de 10 a 30 anos, o que confundia muita gente que tinha carro antigo. A regra nova não vale para todo tipo de veículo: ônibus, micro-ônibus, reboques e semirreboques continuam pagando IPVA normalmente, mesmo com mais de 20 anos. Como a legislação pode ainda sofrer ajustes estado a estado, o ideal é sempre confirmar a situação específica do seu veículo na nossa Tabela de IPVA por Estado ou diretamente no Detran/Sefaz da sua região antes de deixar de pagar.",
+      "A Emenda Constitucional 137/2025 estabelece imunidade nacional de IPVA para os veículos abrangidos com 20 anos ou mais de fabricação. Ela não elimina isenções estaduais mais favoráveis: pode haver benefício antes dessa idade, conforme o estado e os requisitos legais. Ônibus, micro-ônibus, reboques e semirreboques não são abrangidos por essa imunidade específica; isso não exclui outras hipóteses de benefício. Confira a categoria do veículo e a legislação da Sefaz responsável. A tabela do site mostra a referência nacional, não todos os benefícios estaduais.",
   },
 ];
 
@@ -44,9 +44,28 @@ const faqJsonLd = {
   })),
 };
 
+export const metadata: Metadata = {
+  ...pageMetadata,
+  alternates: { canonical: "/guias/faq-custo-de-carro" },
+  openGraph: {
+    title: String(pageMetadata.title),
+    description: pageMetadata.description ?? undefined,
+    url: "/guias/faq-custo-de-carro",
+    type: "article",
+    images: [{ url: "/social-card.png", width: 1200, height: 630 }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: String(pageMetadata.title),
+    description: pageMetadata.description ?? undefined,
+    images: ["/social-card.png"],
+  },
+};
+
 export default function Page() {
   return (
     <ArticleLayout
+      path="/guias/faq-custo-de-carro"
       title="FAQ: Perguntas Frequentes Sobre o Custo de um Carro"
       dek="Direto ao ponto, sem economês."
     >
@@ -82,11 +101,19 @@ export default function Page() {
 
       <p className="mt-8 text-sm text-neutral-500">
         Quer calcular esses números pro seu carro? Confira a{" "}
-        <Link href="/calculadora-custo-de-posse" prefetch={false} className="underline">
+        <Link
+          href="/calculadora-custo-de-posse"
+          prefetch={false}
+          className="underline"
+        >
           Calculadora do Custo Real de Posse
         </Link>{" "}
         e a{" "}
-        <Link href="/tabela-ipva-por-estado" prefetch={false} className="underline">
+        <Link
+          href="/tabela-ipva-por-estado"
+          prefetch={false}
+          className="underline"
+        >
           Tabela de IPVA por Estado
         </Link>
         .
