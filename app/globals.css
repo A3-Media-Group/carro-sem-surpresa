@@ -203,7 +203,6 @@ input {
   border: 1px solid #ffffff23;
   background: #ffffff07;
   border-radius: 20px;
-  transform: rotate(1deg);
 }
 .dashboard-preview > div:nth-child(2) {
   box-shadow: none;
@@ -546,7 +545,6 @@ input {
     font-size: 14px;
   }
   .dashboard-preview {
-    transform: none;
     padding: 12px;
   }
   .hero-buttons {
