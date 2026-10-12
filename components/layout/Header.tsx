@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { Brand } from "./Brand";
 import Link from "next/link";
 import { ToolsDropdown } from "./ToolsDropdown";
 import { MobileNav } from "./MobileNav";
@@ -12,17 +12,7 @@ export function Header() {
           prefetch={false}
           className="flex items-center gap-2 text-lg font-bold tracking-tight"
         >
-          <Image
-            src="/brand-mark.svg"
-            alt=""
-            width={48}
-            height={48}
-            priority
-            className="h-10 w-10"
-          />
-          <span>
-            Carro <span className="text-brand-orange">Sem Surpresa</span>
-          </span>
+          <Brand />
         </Link>
 
         {/* prefetch={false} nos links: o header aparece em toda página,

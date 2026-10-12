@@ -73,7 +73,7 @@ export function HeroCalculator() {
         />
       </div>
 
-      <div className="mt-5 rounded-xl bg-neutral-50 p-4">
+      <div className="estimate-result mt-5 rounded-xl p-4" aria-live="polite" aria-atomic="true">
         <p className="text-xs text-neutral-500">Custo mensal estimado</p>
         <p className="mt-0.5 text-3xl font-bold tracking-tight text-neutral-900">
           {formatBRL(result.totalMonthly)}
@@ -83,6 +83,21 @@ export function HeroCalculator() {
         </p>
       </div>
 
+      <div className="cost-breakdown" aria-label="Composição do custo mensal">
+        <div className="cost-bar" aria-hidden="true">
+          {result.breakdown.map((item, index) => (
+            <span key={item.label} className={`cost-color-${index}`} style={{ flexGrow: result.totalMonthly > 0 ? item.monthlyValue / result.totalMonthly : 0 }} />
+          ))}
+        </div>
+        <dl>
+          {result.breakdown.map((item, index) => (
+            <div key={item.label}>
+              <dt><i className={`cost-color-${index}`} aria-hidden="true" />{item.label}</dt>
+              <dd>{formatBRL(item.monthlyValue)}</dd>
+            </div>
+          ))}
+        </dl>
+      </div>
       <p className="mt-3 text-xs leading-relaxed text-neutral-600">
         Exemplo com consumo de 12 km/L, IPVA médio da tabela e premissas padrão.
         Ajuste as hipóteses no cálculo completo.

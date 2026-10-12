@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { Brand } from "./Brand";
 import Link from "next/link";
 import { AdSlot } from "@/components/ads/AdSlot";
 
@@ -18,14 +18,8 @@ export function Footer() {
         <AdSlot position="footer" />
 
         <div className="mt-8 flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
-          <div className="flex items-start gap-3">
-            <Image
-              src="/logo-icon.png"
-              alt=""
-              width={562}
-              height={241}
-              className="h-6 w-auto shrink-0 opacity-90"
-            />
+          <div className="flex flex-col items-start gap-5">
+            <Link href="/" prefetch={false}><Brand /></Link>
             <p className="max-w-md text-sm text-white/60">
               © {year} Carro Sem Surpresa. Conteúdo informativo, não substitui
               aconselhamento financeiro, contábil ou jurídico.

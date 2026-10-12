@@ -9,6 +9,7 @@ import {
   Wrench,
   BookOpen,
   Check,
+  Search,
 } from "lucide-react";
 import { HeroCalculator } from "@/components/home/HeroCalculator";
 import { TOOLS } from "@/lib/tools";
@@ -69,17 +70,17 @@ export default function Home() {
               <span className="signal-dot" /> MAIS CONTROLE. MENOS SURPRESAS.
             </span>
             <h1>
-              A liberdade de dirigir.
+              Seu próximo carro.
               <br />
               <em>
-                A tranquilidade
+                Sua próxima viagem.
                 <br />
-                de saber o custo.
+                Nenhuma surpresa.
               </em>
             </h1>
             <p>
-              Da primeira pesquisa à próxima revisão: ferramentas e guias para
-              tomar boas decisões com o seu carro.
+              Entenda quanto custa comprar, manter e usar um carro.
+              Faça as contas hoje. Dirija com mais tranquilidade amanhã.
             </p>
             <div className="hero-buttons">
               <Link
@@ -137,6 +138,18 @@ export default function Home() {
           </Link>
         </div>
       </div>
+      <section className="motor-container tool-search-section" aria-label="Buscar ferramentas">
+        <div>
+          <span className="section-kicker">VAMOS RESOLVER?</span>
+          <h2>O que você precisa descobrir?</h2>
+        </div>
+        <form action="/ferramentas" className="home-search" role="search">
+          <Search size={20} aria-hidden="true" />
+          <label htmlFor="home-tool-search" className="sr-only">Buscar ferramenta</label>
+          <input id="home-tool-search" name="q" type="search" placeholder="Ex.: combustível, FIPE, viagem…" maxLength={120} />
+          <button type="submit" aria-label="Buscar ferramentas"><ArrowUpRight size={21} /></button>
+        </form>
+      </section>
       <section className="motor-container home-section">
         <div className="section-heading">
           <div>
