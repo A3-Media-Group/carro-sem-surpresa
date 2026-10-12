@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
+import { ToolDirectory } from "@/components/ToolDirectory";
 import { Directory } from "@/components/Directory";
 import { TOOLS, TOOL_CATEGORY_LABELS } from "@/lib/tools";
 const pageMetadata: Metadata = {
@@ -25,6 +27,12 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
+  const items = TOOLS.map((t) => ({
+    href: t.href,
+    title: t.title,
+    description: t.description,
+    category: TOOL_CATEGORY_LABELS[t.category],
+  }));
   return (
     <main className="motor-container py-12">
       <span className="section-kicker">MENOS DÚVIDAS. MAIS RESPOSTAS.</span>
@@ -34,14 +42,9 @@ export default function Page() {
         cuidar do carro. As calculadoras rodam no navegador; consultas podem
         usar serviços externos.
       </p>
-      <Directory
-        items={TOOLS.map((t) => ({
-          href: t.href,
-          title: t.title,
-          description: t.description,
-          category: TOOL_CATEGORY_LABELS[t.category],
-        }))}
-      />
+      <Suspense fallback={<Directory items={items} />}>
+        <ToolDirectory items={items} />
+      </Suspense>
     </main>
   );
 }

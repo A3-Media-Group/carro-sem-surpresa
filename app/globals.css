@@ -3,14 +3,8 @@
 :root {
   --background: #fbfaf7;
   --foreground: #17292d;
-  /* Paleta da marca: grafite + laranja (Etapa 7).
-     --color-graphite coincide com o slate-900 padrão do Tailwind, mas
-     o orange-500 padrão do Tailwind v4 NÃO é mais #f97316 (mudou para
-     um tom via OKLCH ao migrar de v3 pra v4) — por isso a cor exata da
-     marca é fixada aqui como token próprio, não reaproveitando a
-     paleta padrão. --color-brand-orange-dark é usado onde o laranja
-     puro não tem contraste suficiente (WCAG AA) para texto/ícone sobre
-     fundo branco ou como fundo sob texto branco. */
+  /* Grafite, âmbar e papel. O token orange é mantido por compatibilidade;
+     sua variante escura oferece contraste para texto sobre fundo claro. */
   --color-graphite: #17292d;
   --color-brand-orange: #f5b544;
   --color-brand-orange-dark: #97520b;
@@ -89,13 +83,38 @@ input {
   outline: none;
 }
 .brand-name {
-  font-size: 20px;
-  line-height: 1.06;
+  font-size: 21px;
+  font-weight: 800;
+  line-height: 1.12;
   letter-spacing: -0.6px;
 }
 .brand-name > span {
   display: block;
 }
+.brand-lockup { display: inline-flex; align-items: center; gap: 12px; }
+.brand-lockup > img { flex-shrink: 0; }
+.brand-period { color: #f5b544; }
+.tool-search-section { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: center; padding-top: 48px; }
+.tool-search-section h2 { font-size: 23px; font-weight: 700; letter-spacing: -0.04em; margin-top: 8px; }
+.home-search { display: flex; align-items: center; gap: 12px; padding: 8px 8px 8px 18px; background: white; border: 1px solid #c8d1cb; border-radius: 12px; }
+.home-search:focus-within { outline: 3px solid #b36812; outline-offset: 3px; }
+.home-search input { width: 100%; min-width: 0; min-height: 44px; font-size: 14px; outline: none; }
+.home-search button { display: grid; place-items: center; flex-shrink: 0; width: 44px; height: 44px; border-radius: 8px; background: #17292d; color: #f5b544; cursor: pointer; }
+.home-search button:hover { background: #2c494e; }
+.estimate-result { background: #f8efdd; border: 1px solid #ebd6ac; }
+.cost-breakdown { margin-top: 18px; }
+.cost-bar { display: flex; height: 7px; gap: 3px; border-radius: 10px; overflow: hidden; background: #edf0ed; }
+.cost-bar span { flex-basis: 0; }
+.cost-color-0 { background: #17292d; }
+.cost-color-1 { background: #b07b28; }
+.cost-color-2 { background: #638478; }
+.cost-color-3 { background: #f5b544; }
+.cost-color-4 { background: #7d91a4; }
+.cost-breakdown dl { display: grid; gap: 6px; margin-top: 12px; font-size: 12px; }
+.cost-breakdown dl > div { display: flex; justify-content: space-between; gap: 12px; }
+.cost-breakdown dt { display: flex; align-items: center; gap: 7px; color: #536160; }
+.cost-breakdown dt i { width: 7px; height: 7px; border-radius: 2px; }
+.cost-breakdown dd { font-variant-numeric: tabular-nums; font-weight: 600; }
 .motor-container {
   width: 100%;
   max-width: 1200px;
@@ -103,7 +122,7 @@ input {
   margin-inline: auto;
 }
 .motor-hero {
-  background: #17292d;
+  background: radial-gradient(ellipse at 90% 15%, #28484b 0, transparent 55%), #17292d;
   color: white;
   overflow: hidden;
   position: relative;
@@ -113,14 +132,14 @@ input {
   grid-template-columns: 1.2fr 1fr;
   gap: 76px;
   align-items: center;
-  padding-block: 65px 72px;
+  padding-block: 54px 64px;
 }
 .section-kicker {
   display: inline-flex;
   align-items: center;
   gap: 9px;
   color: #97520b;
-  font-size: 10px;
+  font-size: 11px;
   letter-spacing: 0.13em;
   font-weight: 700;
 }
@@ -189,7 +208,7 @@ input {
   display: flex;
   flex-wrap: wrap;
   gap: 16px;
-  font-size: 10px;
+  font-size: 12px;
   color: #b9c9ca;
   margin-top: 30px;
 }
@@ -305,7 +324,9 @@ input {
   background: white;
   border-radius: 14px;
   padding: 26px;
+  transition: border-color 0.2s, box-shadow 0.2s;
 }
+.journey-card:hover, .journey-card:focus-within { border-color: #b07b28; box-shadow: 0 10px 30px #17292d0a; }
 .journey-top {
   display: flex;
   justify-content: space-between;
@@ -313,7 +334,7 @@ input {
   color: #97520b;
 }
 .journey-top span {
-  font-size: 8px;
+  font-size: 10px;
   letter-spacing: 0.09em;
   font-weight: 700;
 }
@@ -329,7 +350,7 @@ input {
   align-items: center;
 }
 .journey-card > p {
-  font-size: 12px;
+  font-size: 14px;
   line-height: 1.8;
   color: #63706f;
   margin-top: 12px;
@@ -342,7 +363,9 @@ input {
   gap: 12px;
 }
 .journey-links a {
-  font-size: 11px;
+  font-size: 13px;
+  min-height: 36px;
+  align-items: center;
   display: flex;
   justify-content: space-between;
   gap: 12px;
@@ -441,7 +464,7 @@ input {
   line-height: 1.5;
 }
 .reading-body p {
-  font-size: 12px;
+  font-size: 14px;
   line-height: 1.7;
   color: #63706f;
   margin-block: 12px 24px;
@@ -533,6 +556,11 @@ input {
   }
 }
 @media (max-width: 700px) {
+  .tool-search-section { grid-template-columns: 1fr; gap: 18px; padding-top: 32px; }
+  .brand-name { font-size: 18px; }
+  .brand-lockup { gap: 9px; }
+  .brand-lockup > img { width: 42px; height: 42px; }
+  .quick-lane a { min-height: 44px; }
   .hero-grid {
     grid-template-columns: 1fr;
     padding-block: 38px 42px;

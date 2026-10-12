@@ -14,8 +14,8 @@ function normalize(value: string) {
     .replace(/[\u0300-\u036f]/g, "")
     .toLowerCase();
 }
-export function Directory({ items }: { items: DirectoryItem[] }) {
-  const [query, setQuery] = useState("");
+export function Directory({ items, initialQuery = "" }: { items: DirectoryItem[]; initialQuery?: string }) {
+  const [query, setQuery] = useState(initialQuery);
   const [category, setCategory] = useState("Todos");
   const categories = ["Todos", ...new Set(items.map((i) => i.category))];
   const filtered = items.filter(
