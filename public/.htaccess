@@ -1,9 +1,25 @@
 # Next.js static export: resolve clean URLs without requiring Node.js.
+#
+# O export gera, para cada rota, um arquivo "rota.html" E um diretório
+# "rota/" (com os payloads RSC .txt). Sem os ajustes abaixo, o servidor
+# trata "/rota" como diretório, responde 301 para "/rota/" e, como não há
+# index.html ali, termina em 404 — o Googlebot nunca chega ao conteúdo.
+DirectorySlash Off
+Options -Indexes -MultiViews
+
 <IfModule mod_rewrite.c>
   RewriteEngine On
+
+  # "/rota/" -> "/rota" (301, um salto) quando existe "rota.html":
+  # mantém uma única URL por página, igual ao canonical e ao sitemap.
+  RewriteCond %{REQUEST_FILENAME} ^(.+)/$
+  RewriteCond %1.html -f
+  RewriteRule ^(.+)/$ /$1 [R=301,L]
+
+  # "/rota" -> "rota.html" (rewrite interno, sem redirecionamento),
+  # inclusive quando também existe um diretório "rota/".
   RewriteCond %{REQUEST_FILENAME} !-f
-  RewriteCond %{REQUEST_FILENAME} !-d
   RewriteCond %{REQUEST_FILENAME}.html -f
-  RewriteRule ^(.+?)/?$ $1.html [L]
+  RewriteRule ^(.+)$ $1.html [L]
 </IfModule>
 ErrorDocument 404 /404.html
