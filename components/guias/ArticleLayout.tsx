@@ -2,11 +2,16 @@ import Link from "next/link";
 import type { ReactNode } from "react";
 import { AdSlot } from "@/components/ads/AdSlot";
 import { Breadcrumbs } from "@/components/seo/Breadcrumbs";
+import { JsonLd } from "@/components/seo/JsonLd";
 import { RelatedLinks } from "@/components/seo/RelatedLinks";
 import {
   relatedGuidesForGuide,
   relatedToolsForGuide,
 } from "@/lib/related";
+import { GUIDE_DATES } from "@/lib/guide-dates";
+import { siteUrl } from "@/lib/site";
+
+const formatDate = (iso: string) => iso.split("-").reverse().join("/");
 
 /**
  * Layout compartilhado dos artigos de /guias: título, subtítulo e um
@@ -23,34 +28,38 @@ export function ArticleLayout({
   dek,
   children,
   path,
-  date,
 }: {
   title: string;
   dek?: string;
   children: ReactNode;
   path?: string;
-  date?: string;
 }) {
+  const dates = path ? GUIDE_DATES[path] : undefined;
   return (
     <main className="mx-auto w-full max-w-6xl px-6 py-12">
       {path && (
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "Article",
-              headline: title,
-              description: dek,
-              inLanguage: "pt-BR",
-              mainEntityOfPage: `https://carrosemsurpresa.com.br${path}`,
-              author: {
-                "@type": "Organization",
-                name: "Carro Sem Surpresa",
-                url: "https://carrosemsurpresa.com.br/sobre",
-              },
-              ...(date ? { datePublished: date, dateModified: date } : {}),
-            }).replace(/</g, "\\u003c"),
+        <JsonLd
+          data={{
+            "@context": "https://schema.org",
+            "@type": "Article",
+            headline: title,
+            description: dek,
+            inLanguage: "pt-BR",
+            mainEntityOfPage: `${siteUrl}${path}`,
+            image: `${siteUrl}/social-card.png`,
+            author: {
+              "@type": "Organization",
+              name: "Carro Sem Surpresa",
+              url: `${siteUrl}/sobre`,
+            },
+            publisher: {
+              "@type": "Organization",
+              name: "Carro Sem Surpresa",
+              logo: { "@type": "ImageObject", url: `${siteUrl}/icon.png` },
+            },
+            ...(dates
+              ? { datePublished: dates.published, dateModified: dates.modified }
+              : {}),
           }}
         />
       )}
@@ -71,13 +80,22 @@ export function ArticleLayout({
             <Link href="/sobre" className="underline">
               Carro Sem Surpresa
             </Link>
-            {date && (
+            {dates && (
               <>
                 {" "}
                 · Publicado em{" "}
-                <time dateTime={date}>
-                  {date.split("-").reverse().join("/")}
+                <time dateTime={dates.published}>
+                  {formatDate(dates.published)}
                 </time>
+                {dates.modified !== dates.published && (
+                  <>
+                    {" "}
+                    · Atualizado em{" "}
+                    <time dateTime={dates.modified}>
+                      {formatDate(dates.modified)}
+                    </time>
+                  </>
+                )}
               </>
             )}
           </p>

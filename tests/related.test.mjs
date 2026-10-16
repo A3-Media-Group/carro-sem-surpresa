@@ -26,3 +26,13 @@ test("each guide is linked back from at least 2 tools", () => {
     assert.ok(tools.size >= 2, `${guide}: ${tools.size} tools`);
   }
 });
+
+test("every guide has real published/modified dates", async () => {
+  const { GUIDE_DATES } = await import("../lib/guide-dates.ts");
+  for (const guide of guides) {
+    const dates = GUIDE_DATES[guide];
+    assert.ok(dates, `${guide} has no dates`);
+    assert.match(dates.published, /^\d{4}-\d{2}-\d{2}$/);
+    assert.ok(dates.modified >= dates.published, `${guide}: modified < published`);
+  }
+});
