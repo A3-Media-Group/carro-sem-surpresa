@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import { Directory } from "@/components/Directory";
+import { Breadcrumbs } from "@/components/seo/Breadcrumbs";
+import { RelatedLinks } from "@/components/seo/RelatedLinks";
 import { GUIDES } from "@/lib/guides";
+import { TOOLS } from "@/lib/tools";
 const pageMetadata: Metadata = {
   title: "Guias para Comprar, Manter e Economizar com o Carro",
   description:
@@ -27,6 +30,7 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <main className="motor-container py-12">
+      <Breadcrumbs items={[{ href: "/guias", label: "Guias" }]} />
       <span className="section-kicker">LEIA. ENTENDA. DECIDA.</span>
       <h1 className="mt-4 text-4xl font-bold">
         Conhecimento para cada quilômetro.
@@ -42,6 +46,11 @@ export default function Page() {
           description: g.resumo,
           category: "Guias",
         }))}
+      />
+      <RelatedLinks
+        kicker="DA LEITURA À PRÁTICA"
+        title="Ferramentas para fazer as contas"
+        items={TOOLS}
       />
     </main>
   );

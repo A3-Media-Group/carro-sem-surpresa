@@ -1,6 +1,12 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
 import { AdSlot } from "@/components/ads/AdSlot";
+import { Breadcrumbs } from "@/components/seo/Breadcrumbs";
+import { RelatedLinks } from "@/components/seo/RelatedLinks";
+import {
+  relatedGuidesForGuide,
+  relatedToolsForGuide,
+} from "@/lib/related";
 
 /**
  * Layout compartilhado dos artigos de /guias: título, subtítulo e um
@@ -50,14 +56,13 @@ export function ArticleLayout({
       )}
       <div className="lg:grid lg:grid-cols-[1fr_300px] lg:items-start lg:gap-10">
         <div className="mx-auto w-full max-w-3xl lg:mx-0">
-          <Link
-            href="/guias"
-            prefetch={false}
-            className="text-sm font-medium text-brand-orange-dark hover:underline"
-          >
-            ← Voltar para os guias
-          </Link>
-          <h1 className="mt-4 text-3xl font-bold tracking-tight text-neutral-900 sm:text-4xl">
+          <Breadcrumbs
+            items={[
+              { href: "/guias", label: "Guias" },
+              ...(path ? [{ href: path, label: title }] : []),
+            ]}
+          />
+          <h1 className="text-3xl font-bold tracking-tight text-neutral-900 sm:text-4xl">
             {title}
           </h1>
           {dek && <p className="mt-3 text-lg text-neutral-600">{dek}</p>}
@@ -80,6 +85,25 @@ export function ArticleLayout({
           <AdSlot position="in-between" className="my-8" />
 
           <div className="article-content space-y-4">{children}</div>
+
+          {path && (
+            <>
+              <RelatedLinks
+                kicker="FAÇA A CONTA"
+                title="Ferramentas para este assunto"
+                items={relatedToolsForGuide(path)}
+              />
+              <RelatedLinks
+                kicker="CONTINUE LENDO"
+                title="Guias relacionados"
+                items={relatedGuidesForGuide(path).map((g) => ({
+                  href: g.href,
+                  title: g.titulo,
+                  description: g.resumo,
+                }))}
+              />
+            </>
+          )}
         </div>
 
         <aside className="hidden lg:sticky lg:top-24 lg:block">

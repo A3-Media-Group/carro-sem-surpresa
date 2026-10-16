@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight, Calculator } from "lucide-react";
 import { PageHeading } from "@/components/ui/PageHeading";
+import { Breadcrumbs } from "@/components/seo/Breadcrumbs";
 import { CALCULADORAS } from "@/lib/tools";
 
 const pageMetadata: Metadata = {
@@ -31,12 +32,18 @@ export const metadata: Metadata = {
 export default function CalculadorasPage() {
   return (
     <main className="mx-auto max-w-3xl px-6 py-12">
+      <Breadcrumbs
+        items={[
+          { href: "/ferramentas", label: "Ferramentas" },
+          { href: "/calculadoras", label: "Calculadoras" },
+        ]}
+      />
       <PageHeading icon={Calculator} title="Calculadoras">
         As {CALCULADORAS.length} calculadoras do site — as que recebem os
         números do seu carro e fazem a conta pra você. Pra tabelas de referência
         (IPVA, multas, FIPE), recibo em PDF e o diagnóstico por sintoma, veja a
         lista completa em{" "}
-        <Link href="/#ferramentas" prefetch={false} className="underline">
+        <Link href="/ferramentas" prefetch={false} className="underline">
           Ferramentas
         </Link>
         .
