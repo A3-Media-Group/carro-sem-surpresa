@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import { ToolPage } from "@/components/tools/ToolPage";
+import { conteudo } from "./conteudo";
 import { ManutencaoSimulator } from "./ManutencaoSimulator";
 
 const pageMetadata: Metadata = {
@@ -26,5 +28,13 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return <ManutencaoSimulator />;
+  return (
+    <ToolPage
+      href="/manutencao-preventiva-vs-corretiva"
+      content={conteudo}
+      className="mx-auto max-w-4xl px-6 py-12"
+    >
+      <ManutencaoSimulator />
+    </ToolPage>
+  );
 }

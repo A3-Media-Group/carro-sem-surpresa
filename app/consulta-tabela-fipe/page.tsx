@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import { ToolPage } from "@/components/tools/ToolPage";
+import { conteudo } from "./conteudo";
 import { FipeConsulta } from "./FipeConsulta";
 
 const pageMetadata: Metadata = {
@@ -26,5 +28,13 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return <FipeConsulta />;
+  return (
+    <ToolPage
+      href="/consulta-tabela-fipe"
+      content={conteudo}
+      className="mx-auto max-w-3xl px-6 py-12"
+    >
+      <FipeConsulta />
+    </ToolPage>
+  );
 }

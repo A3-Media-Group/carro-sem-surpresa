@@ -61,7 +61,7 @@ export function ComparisonSimulator() {
   const priciest = options.reduce((a, b) => (b.total > a.total ? b : a));
 
   return (
-    <main className="mx-auto max-w-5xl px-6 py-12">
+    <div>
       <PageHeading
         icon={Scale}
         title="Consórcio vs. Financiamento vs. à Vista"
@@ -189,6 +189,6 @@ export function ComparisonSimulator() {
           </p>
         </div>
       </div>
-    </main>
+    </div>
   );
 }

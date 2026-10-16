@@ -29,7 +29,7 @@ export function ManutencaoSimulator() {
   );
 
   return (
-    <main className="mx-auto max-w-4xl px-6 py-12">
+    <div>
       <PageHeading icon={Wrench} title="Manutenção Preventiva vs. Corretiva">
         O item que você não troca na hora certa quase sempre sai mais caro
         depois. Veja o que está vencendo no seu carro e quanto você
@@ -118,6 +118,6 @@ export function ManutencaoSimulator() {
         aconselhamento financeiro nem a avaliação de um mecânico de
         confiança sobre o estado real do seu carro.
       </p>
-    </main>
+    </div>
   );
 }

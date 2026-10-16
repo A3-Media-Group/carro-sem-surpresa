@@ -95,7 +95,7 @@ export function TcoCalculator() {
   const rideHailingIsCheaper = result.rideHailingDiffMonthly > 0;
 
   return (
-    <main className="mx-auto max-w-5xl px-6 py-12">
+    <div>
       <PageHeading icon={Calculator} title="Calculadora do Custo Real de Posse">
         Depreciação, IPVA, seguro, combustível e manutenção — o gasto que
         ninguém te conta quando você compra um carro. Preencha os campos
@@ -215,6 +215,6 @@ export function TcoCalculator() {
           </p>
         </div>
       </div>
-    </main>
+    </div>
   );
 }

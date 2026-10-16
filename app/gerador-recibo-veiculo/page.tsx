@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import { ToolPage } from "@/components/tools/ToolPage";
+import { conteudo } from "./conteudo";
 import { ReciboForm } from "./ReciboForm";
 
 const pageMetadata: Metadata = {
@@ -26,5 +28,13 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return <ReciboForm />;
+  return (
+    <ToolPage
+      href="/gerador-recibo-veiculo"
+      content={conteudo}
+      className="mx-auto max-w-3xl px-6 py-12"
+    >
+      <ReciboForm />
+    </ToolPage>
+  );
 }

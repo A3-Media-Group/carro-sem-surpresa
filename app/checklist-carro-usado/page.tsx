@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import { ToolPage } from "@/components/tools/ToolPage";
+import { conteudo } from "./conteudo";
 import { Checklist } from "./Checklist";
 const pageMetadata: Metadata = {
   title: "Checklist Interativo para Comprar Carro Usado",
@@ -26,7 +27,11 @@ export const metadata: Metadata = {
 
 export default function Page() {
   return (
-    <main className="motor-container py-12">
+    <ToolPage
+      href="/checklist-carro-usado"
+      content={conteudo}
+      className="motor-container py-12"
+    >
       <span className="section-kicker">ANTES DE FECHAR NEGÓCIO</span>
       <h1 className="mt-4 text-3xl font-bold sm:text-4xl">
         Checklist para comprar um carro usado
@@ -36,43 +41,6 @@ export default function Page() {
         pedimos placa, CPF nem dados do vendedor.
       </p>
       <Checklist />
-      <section className="article-content mt-10 max-w-3xl space-y-5">
-        <h2 className="text-2xl font-bold">
-          Use a lista como roteiro, não como laudo
-        </h2>
-        <p>
-          Um anúncio e um test-drive não revelam todo o histórico do veículo. A
-          inspeção mecânica e a avaliação documental se complementam; uma não
-          substitui a outra. Se houver divergências, esclareça-as antes de
-          pagar.
-        </p>
-        <p>
-          Veja o{" "}
-          <Link href="/guias/checklist-comprar-carro-usado">
-            guia completo de compra de usados
-          </Link>
-          , aprenda a{" "}
-          <Link href="/guias/consultar-recall-e-restricoes">
-            consultar recall e restrições
-          </Link>{" "}
-          e estime o{" "}
-          <Link href="/calculadora-custo-transferencia-veiculo">
-            custo da transferência
-          </Link>
-          .
-        </p>
-        <p className="text-sm">
-          Canais oficiais:{" "}
-          <a href="https://www.gov.br/pt-br/servicos/realizar-consulta-sobre-recall-de-veiculos">
-            consulta de recall da Senatran
-          </a>{" "}
-          e{" "}
-          <a href="https://www.gov.br/pt-br/servicos/consultar-informacoes-sobre-restricoes-e-indicadores-de-veiculos">
-            restrições e indicadores de veículos
-          </a>
-          .
-        </p>
-      </section>
-    </main>
+    </ToolPage>
   );
 }

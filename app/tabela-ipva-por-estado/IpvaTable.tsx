@@ -33,7 +33,7 @@ export function IpvaTable() {
   const { isencaoNacional } = ipvaData.referencia;
 
   return (
-    <main className="mx-auto max-w-4xl px-6 py-12">
+    <div>
       <PageHeading
         icon={Landmark}
         title="IPVA por Estado: Alíquotas e Imunidade Nacional"
@@ -130,6 +130,6 @@ export function IpvaTable() {
         frequência — confirme sempre a alíquota vigente no site oficial do
         Detran/Sefaz do seu estado antes de tomar decisões.
       </p>
-    </main>
+    </div>
   );
 }

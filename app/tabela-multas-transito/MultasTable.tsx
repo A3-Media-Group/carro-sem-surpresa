@@ -42,7 +42,7 @@ export function MultasTable() {
   }, [search]);
 
   return (
-    <main className="mx-auto max-w-4xl px-6 py-12">
+    <div>
       <PageHeading icon={Siren} title="Tabela de Multas de Trânsito">
         Valor e pontos na CNH das infrações mais comuns — os mesmos em
         qualquer estado, porque são fixados pelo CTB, não por lei estadual.
@@ -136,6 +136,6 @@ export function MultasTable() {
         classificação típica, mas podem variar por interpretação do agente
         autuador.
       </p>
-    </main>
+    </div>
   );
 }

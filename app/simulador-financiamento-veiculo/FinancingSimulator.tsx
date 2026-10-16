@@ -30,7 +30,7 @@ export function FinancingSimulator() {
   );
 
   return (
-    <main className="mx-auto max-w-5xl px-6 py-12">
+    <div>
       <PageHeading icon={HandCoins} title="Simulador de Financiamento vs. à Vista">
         A parcela parece pequena, mas o total de juros pagos é o gasto que
         ninguém te conta. Veja o custo real do financiamento antes de
@@ -121,6 +121,6 @@ export function FinancingSimulator() {
           </p>
         </div>
       </div>
-    </main>
+    </div>
   );
 }
