@@ -10,6 +10,13 @@ Options -Indexes -MultiViews
 <IfModule mod_rewrite.c>
   RewriteEngine On
 
+  # Bloqueia (403) arquivos e pastas ocultos em qualquer nível — .git/,
+  # .env, .htaccess etc. — exceto /.well-known/ (validação de SSL,
+  # security.txt), e arquivos de desenvolvimento que nunca deveriam
+  # estar publicados.
+  RewriteRule (^|/)\.(?!well-known(/|$)) - [F,L]
+  RewriteRule (^|/)(package(-lock)?\.json|composer\.(json|lock)|[^/]+\.(bak|old|orig|swp|sql|log|sh|ini|env))$ - [F,L,NC]
+
   # "/rota/" -> "/rota" (301, um salto) quando existe "rota.html":
   # mantém uma única URL por página, igual ao canonical e ao sitemap.
   RewriteCond %{REQUEST_FILENAME} ^(.+)/$
