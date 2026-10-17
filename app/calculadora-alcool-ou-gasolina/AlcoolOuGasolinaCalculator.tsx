@@ -44,7 +44,7 @@ export function AlcoolOuGasolinaCalculator() {
         : "Empate";
 
   return (
-    <main className="mx-auto max-w-5xl px-6 py-12">
+    <div>
       <PageHeading
         icon={Fuel}
         title="Álcool ou Gasolina: o que Compensa Abastecer"
@@ -172,6 +172,6 @@ export function AlcoolOuGasolinaCalculator() {
           </p>
         )}
       </div>
-    </main>
+    </div>
   );
 }

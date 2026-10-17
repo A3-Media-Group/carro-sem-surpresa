@@ -35,7 +35,7 @@ export function TransferCostCalculator() {
   );
 
   return (
-    <main className="mx-auto max-w-5xl px-6 py-12">
+    <div>
       <PageHeading icon={FileStack} title="Custo de Transferência de Veículo">
         Comprou ou vendeu um carro? A transferência tem um custo próprio,
         separado do valor do veículo — e ninguém avisa isso antes.
@@ -108,6 +108,6 @@ export function TransferCostCalculator() {
           </p>
         </div>
       </div>
-    </main>
+    </div>
   );
 }

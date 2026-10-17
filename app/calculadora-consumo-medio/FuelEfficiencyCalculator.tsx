@@ -35,7 +35,7 @@ export function FuelEfficiencyCalculator() {
   );
 
   return (
-    <main className="mx-auto max-w-5xl px-6 py-12">
+    <div>
       <PageHeading icon={Gauge} title="Calculadora de Consumo Médio Real">
         Km rodado dividido pelo litros abastecidos — o consumo de verdade
         do seu carro, não o número que vem no folheto.
@@ -111,6 +111,6 @@ export function FuelEfficiencyCalculator() {
           </p>
         </div>
       </div>
-    </main>
+    </div>
   );
 }

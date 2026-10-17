@@ -167,7 +167,7 @@ export function FipeConsulta() {
   const visibleResult = brandCode && modelCode && yearCode ? result : null;
 
   return (
-    <main className="mx-auto max-w-3xl px-6 py-12">
+    <div>
       <PageHeading icon={Tag} title="Consulta Tabela FIPE">
         Preço médio de mercado de carros, motos e caminhões, direto da
         tabela oficial da FIPE.
@@ -243,6 +243,6 @@ export function FipeConsulta() {
         conservação, km rodado e região. Dados fornecidos por uma API
         pública de terceiros a partir da tabela oficial da FIPE.
       </p>
-    </main>
+    </div>
   );
 }

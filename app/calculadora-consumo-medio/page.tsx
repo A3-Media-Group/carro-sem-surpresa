@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import { ToolPage } from "@/components/tools/ToolPage";
+import { conteudo } from "./conteudo";
 import { FuelEfficiencyCalculator } from "./FuelEfficiencyCalculator";
 
 const pageMetadata: Metadata = {
@@ -26,5 +28,13 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return <FuelEfficiencyCalculator />;
+  return (
+    <ToolPage
+      href="/calculadora-consumo-medio"
+      content={conteudo}
+      className="mx-auto max-w-5xl px-6 py-12"
+    >
+      <FuelEfficiencyCalculator />
+    </ToolPage>
+  );
 }

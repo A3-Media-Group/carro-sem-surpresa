@@ -58,7 +58,7 @@ export function ReciboForm() {
   }
 
   return (
-    <main className="mx-auto max-w-3xl px-6 py-12">
+    <div>
       <PageHeading icon={Receipt} title="Gerador de Recibo de Compra e Venda">
         Preencha os dados abaixo e gere um recibo em PDF, pronto para
         imprimir e assinar. Tudo roda no seu navegador — nada é enviado
@@ -232,6 +232,6 @@ export function ReciboForm() {
           </p>
         </div>
       </form>
-    </main>
+    </div>
   );
 }

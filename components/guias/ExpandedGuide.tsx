@@ -8,7 +8,6 @@ export function ExpandedGuide({ slug }: { slug: string }) {
       title={guide.title}
       dek={guide.description}
       path={`/guias/${guide.slug}`}
-      date="2026-09-13"
     >
       <nav aria-label="Neste guia" className="rounded-xl bg-neutral-100 p-5">
         <p className="font-bold">Neste guia</p>

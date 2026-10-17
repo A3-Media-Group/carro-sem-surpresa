@@ -38,15 +38,24 @@ export function ToolsDropdown() {
   }, [open]);
 
   return (
-    <div ref={containerRef} className="relative">
+    <div ref={containerRef} className="relative flex items-center">
+      {/* "Ferramentas" é um link de verdade para o hub (rastreável sem
+          JavaScript); só a seta abre o menu suspenso. */}
+      <Link
+        href="/ferramentas"
+        prefetch={false}
+        className="flex h-11 items-center rounded-md pl-3 pr-1 text-sm font-medium text-white/90 hover:bg-white/10 hover:text-brand-orange"
+      >
+        Ferramentas
+      </Link>
       <button
         type="button"
         onClick={() => setOpen((v) => !v)}
         aria-controls="tools-navigation"
         aria-expanded={open}
-        className="flex h-11 items-center gap-1 rounded-md px-3 text-sm font-medium text-white/90 hover:bg-white/10 hover:text-brand-orange"
+        aria-label={open ? "Fechar lista de ferramentas" : "Abrir lista de ferramentas"}
+        className="flex h-11 w-9 items-center justify-center rounded-md text-white/90 hover:bg-white/10 hover:text-brand-orange"
       >
-        Ferramentas
         <ChevronDown
           size={16}
           className={`transition-transform ${open ? "rotate-180" : ""}`}

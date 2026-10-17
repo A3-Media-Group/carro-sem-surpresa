@@ -41,6 +41,16 @@ export function MobileNav() {
           className="absolute inset-x-0 top-20 z-40 max-h-[calc(100dvh-5rem)] overflow-y-auto border-t border-white/10 bg-graphite px-6 py-4 shadow-lg"
         >
           <ul className="space-y-1">
+            <li>
+              <Link
+                href="/ferramentas"
+                prefetch={false}
+                onClick={() => setOpen(false)}
+                className="flex min-h-11 items-center rounded-md px-3 text-base font-semibold text-white hover:bg-white/10 hover:text-brand-orange"
+              >
+                Todas as ferramentas
+              </Link>
+            </li>
             {TOOLS.map((tool) => (
               <li key={tool.href}>
                 <Link

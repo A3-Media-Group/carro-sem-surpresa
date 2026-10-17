@@ -71,7 +71,7 @@ export function DiagnosticoTool() {
     CAR_BODY_TYPES.find((t) => t.id === bodyType)?.nome ?? "carro";
 
   return (
-    <main className="mx-auto max-w-4xl px-6 py-12">
+    <div>
       <PageHeading icon={Stethoscope} title="Diagnóstico de Problemas do Carro">
         Digite o sintoma que o seu carro está apresentando e veja as causas
         mais prováveis, o nível de urgência e as perguntas certas pra fazer
@@ -256,6 +256,6 @@ export function DiagnosticoTool() {
         desgastada, o código de erro do scanner ou a medição feita antes de
         aprovar um reparo caro.
       </p>
-    </main>
+    </div>
   );
 }
